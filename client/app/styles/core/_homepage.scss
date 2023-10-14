@@ -1,0 +1,40 @@
+// .homepage {
+//     .info{
+//         color: $white !important;
+//         background-color: $logored !important;
+//     }
+// }
+
+.brands ul{
+    height:200px;
+    overflow:auto; 
+    // background-color: black;
+}
+.brands .carousel-container{
+    // max-height: 50%;
+}
+.homepage .brands img {
+    max-height: 100%;  /* change this to whatever you want */
+    // display: block;
+    // margin: auto;
+}
+
+
+
+.info{
+    color: $white !important;
+    background-color: $logored !important;
+}
+
+.infoBlue {
+    color: $white !important;
+    background-color: $logoblue !important;
+}
+
+
+
+.driveImage{
+    width:100%; 
+    height:500px; 
+
+}
