@@ -98,19 +98,12 @@ class Homepage extends React.PureComponent {
 
          {/* products */}
          <Row xs='12' className='mt-5'>
-          <Col
-            xs={{ size: 12, order: 1 }}
-            sm={{ size: 12, order: 1 }}
-            md={{ size: 12, order: 1 }}
-            lg={{ size: 3, order: 1 }}
-          >
-            <ProductFilter filterProducts={filterProducts} />
-          </Col>
+
           <Col
             xs={{ size: 12, order: 2 }}
             sm={{ size: 12, order: 2 }}
             md={{ size: 12, order: 2 }}
-            lg={{ size: 9, order: 2 }}
+            lg={{ size: 12, order: 2 }}
           >
             <Switch>
               <Route exact path='/' component={ProductsShop} />
