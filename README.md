@@ -327,6 +327,8 @@ sudo systemctl reload nginx
 #### 10.3 Obtaining an FREE SSL Certificate
 ```sh
 sudo certbot --nginx -d app.example.com 
+sudo certbot --nginx -d www.ane-eg.com,ane-eg.com
+
 ```
 
 Output:
