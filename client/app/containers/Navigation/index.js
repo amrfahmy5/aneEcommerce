@@ -190,8 +190,8 @@ class Navigation extends React.PureComponent {
                   />
                 )}
                 <Link to="/">
-                  {/* <h1 className="logo">ANE</h1> */}
-                  <img src="/images/logo.png" width="100" />
+                  <h1 className="logo">ANE</h1>
+                  {/* <img src="/images/logo.png" width="100" /> */}
                 </Link>
               </div>
             </Col>
@@ -380,6 +380,9 @@ class Navigation extends React.PureComponent {
             onClick={toggleMenu}
           />
         </div>
+         <a class="whats-app" href="https://wa.me/+201118122288" target="_blank">
+          <i class="fa fa-whatsapp fa-lg my-float"></i>
+        </a>
       </header>
     );
   }
