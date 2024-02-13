@@ -126,10 +126,10 @@ const OrderItems = props => {
                         Quantity
                         <span className='order-label'>{` ${item.quantity}`}</span>
                       </p>
-                      <p>
+                      {/* <p>
                         Total Price
                         <span className='order-label'>{` ${item.totalPrice} L.E`}</span>
-                      </p>
+                      </p> */}
                     </div>
                   </div>
                 </div>

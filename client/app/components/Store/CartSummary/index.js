@@ -14,7 +14,7 @@ const CartSummary = props => {
   return (
     <div className='cart-summary'>
       <Container>
-        <Row className='mb-2 summary-item'>
+        {/* <Row className='mb-2 summary-item'>
           <Col xs='9'>
             <p className='summary-label'>Shippling</p>
           </Col>
@@ -29,7 +29,7 @@ const CartSummary = props => {
           <Col xs='3' className='text-right'>
             <p className='summary-value'>{cartTotal} L.E</p>
           </Col>
-        </Row>
+        </Row> */}
       </Container>
     </div>
   );
