@@ -35,7 +35,7 @@ class Homepage extends React.PureComponent {
     return (
       <div className='homepage'>
         <Row className='flex-row'>
-          <Col xs='12' lg='8' className='order-lg-1 mb-3 px-3 px-md-2'>
+          <Col xs='12' lg='10' className='order-lg-1 mb-3 px-3 px-md-2'>
             <div className='home-carousel'>
               <CarouselSlider
                 swipeable={true}
@@ -49,49 +49,6 @@ class Homepage extends React.PureComponent {
                   <img key={index} src={item.imageUrl} />
                 ))}
               </CarouselSlider>
-            </div>
-          </Col>
-
-          <Col xs='12' lg='3' className='order-lg-1 mb-3 px-3 px-md-2'>
-            <div className='d-flex flex-column h-100 justify-content-between brands'>
-             
-             
-              <div className='text-center'>
-                <div class="shadow p-2 mb-1 rounded info">
-                  Our Brands
-                </div>
-                <CarouselSlider
-                  swipeable={true}
-                  showDots={false}
-                  infinite={true}
-                  autoPlay={true}
-                  slides={banners}
-                  responsive={responsiveOneItemCarousel}
-                >
-                  {brands.map((item, index) => (
-                    <img key={index} src={item.imageUrl} />
-                  ))}
-                </CarouselSlider>
-              </div>
-              {/* Brands */}
-              <div className='text-center'>
-                <div class="shadow p-2 mb-1 rounded info">
-                  Our Customers
-                </div>
-                <CarouselSlider
-                  swipeable={true}
-                  showDots={false}
-                  infinite={true}
-                  autoPlay={true}
-                  slides={customerLogo}
-                  responsive={responsiveOneItemCarousel}
-                >
-                  {customerLogo.map((item, index) => (
-                    <img key={index} src={item.imageUrl} />
-                  ))}
-                </CarouselSlider>
-              </div>
-
             </div>
           </Col>
         </Row>
@@ -115,6 +72,56 @@ class Homepage extends React.PureComponent {
         <Row xs="12" className='infoBlue align-items-center mx-0 mt-7 mt-lg-4 py-3 py-lg-3 text-center'>
           <Col>
             <a href='/shop'><span class="infoBlue">For More Products click here ...  </span></a>
+          </Col>
+        </Row>
+
+        {/* brand and customer */}
+        <Row className='flex-row my-2'>
+          <Col xs='6' lg='6' className='order-lg-1 mb-3 px-3 px-md-2'>
+          <div className='d-flex flex-column h-100 justify-content-between brands text-center'>
+                <div class="shadow p-2 mb-1 rounded info">
+                  Our Brands
+                </div>
+                <CarouselSlider
+                  swipeable={true}
+                  showDots={false}
+                  infinite={true}
+                  autoPlay={true}
+                  slides={banners}
+                  responsive={responsiveOneItemCarousel}
+                >
+                  {brands.map((item, index) => (
+                    <img key={index} src={item.imageUrl} />
+                  ))}
+                </CarouselSlider>
+              </div>
+          </Col>
+
+          <Col xs='6' lg='6' className='order-lg-1 mb-3 px-3 px-md-2'>
+            <div className='d-flex flex-column h-100 justify-content-between brands'>
+             
+             
+             
+              {/* Brands */}
+              <div className='text-center'>
+                <div class="shadow p-2 mb-1 rounded info">
+                  Our Customers
+                </div>
+                <CarouselSlider
+                  swipeable={true}
+                  showDots={false}
+                  infinite={true}
+                  autoPlay={true}
+                  slides={customerLogo}
+                  responsive={responsiveOneItemCarousel}
+                >
+                  {customerLogo.map((item, index) => (
+                    <img key={index} src={item.imageUrl} />
+                  ))}
+                </CarouselSlider>
+              </div>
+
+            </div>
           </Col>
         </Row>
       </div>
