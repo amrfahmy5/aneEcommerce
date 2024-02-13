@@ -28,7 +28,8 @@ const Checkout = props => {
         ) : (
           <Button
             variant='primary'
-            text='Proceed To Checkout'
+            // text='Proceed To Checkout'
+            text='Confirm'
             onClick={() => handleCheckout()}
           />
         )}

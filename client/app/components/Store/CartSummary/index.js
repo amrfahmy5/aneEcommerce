@@ -4,15 +4,15 @@
  *
  */
 
-import React from 'react';
+import React from "react";
 
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col } from "reactstrap";
 
-const CartSummary = props => {
+const CartSummary = (props) => {
   const { cartTotal } = props;
 
   return (
-    <div className='cart-summary'>
+    <div className="cart-summary">
       <Container>
         {/* <Row className='mb-2 summary-item'>
           <Col xs='9'>
@@ -30,6 +30,9 @@ const CartSummary = props => {
             <p className='summary-value'>{cartTotal} L.E</p>
           </Col>
         </Row> */}
+        <div class="alert alert-danger" role="alert">
+          Confirm your request and We will call you ASAP , WAIT US :)
+        </div>
       </Container>
     </div>
   );
