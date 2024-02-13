@@ -381,7 +381,7 @@ class Navigation extends React.PureComponent {
           />
         </div>
          <a class="whats-app" href="https://wa.me/+201121833830" target="_blank">
-          <i class="fa fa-whatsapp fa-lg my-float"></i>
+          <i class="fa-lg fa-whatsapp fa my-float"></i>
         </a>
       </header>
     );
