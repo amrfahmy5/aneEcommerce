@@ -44,7 +44,8 @@ export const signUp = () => {
         email: 'required|email',
         password: 'required|min:6',
         firstName: 'required',
-        lastName: 'required'
+        lastName: 'required',
+        phoneNumber:'required'
       };
 
       const newUser = getState().signup.signupFormData;
@@ -54,7 +55,9 @@ export const signUp = () => {
         'required.email': 'Email is required.',
         'required.password': 'Password is required.',
         'required.firstName': 'First Name is required.',
-        'required.lastName': 'Last Name is required.'
+        'required.lastName': 'Brand Name is required.',
+        'required.phoneNumber': 'Phone Number is required.'
+
       });
 
       if (!isValid) {

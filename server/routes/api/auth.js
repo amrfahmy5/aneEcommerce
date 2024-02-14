@@ -82,7 +82,7 @@ router.post('/login', async (req, res) => {
 
 router.post('/register', async (req, res) => {
   try {
-    const { email, firstName, lastName, password, isSubscribed } = req.body;
+    const { email, firstName, lastName, password, isSubscribed , phoneNumber } = req.body;
 
     if (!email) {
       return res
@@ -92,6 +92,10 @@ router.post('/register', async (req, res) => {
 
     if (!firstName || !lastName) {
       return res.status(400).json({ error: 'You must enter your full name.' });
+    }
+
+    if (!phoneNumber) {
+      return res.status(400).json({ error: 'You must enter your phone number.' });
     }
 
     if (!password) {
@@ -119,7 +123,8 @@ router.post('/register', async (req, res) => {
       email,
       password,
       firstName,
-      lastName
+      lastName,
+      phoneNumber
     });
 
     const salt = await bcrypt.genSalt(10);

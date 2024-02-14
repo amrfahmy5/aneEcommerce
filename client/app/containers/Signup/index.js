@@ -67,6 +67,19 @@ class Signup extends React.PureComponent {
               <Col xs='12' md='12'>
                 <Input
                   type={'text'}
+                  error={formErrors['phoneNumber']}
+                  label={'Phone Number'}
+                  name={'phoneNumber'}
+                  placeholder={'Please Enter Your Phone Number'}
+                  value={signupFormData.phoneNumber}
+                  onInputChange={(name, value) => {
+                    signupChange(name, value);
+                  }}
+                />
+              </Col>
+              <Col xs='12' md='12'>
+                <Input
+                  type={'text'}
                   error={formErrors['firstName']}
                   label={'First Name'}
                   name={'firstName'}
@@ -81,9 +94,9 @@ class Signup extends React.PureComponent {
                 <Input
                   type={'text'}
                   error={formErrors['lastName']}
-                  label={'Last Name'}
+                  label={'Brand Name'}
                   name={'lastName'}
-                  placeholder={'Please Enter Your Last Name'}
+                  placeholder={'Please Enter Your Brand Name'}
                   value={signupFormData.lastName}
                   onInputChange={(name, value) => {
                     signupChange(name, value);
