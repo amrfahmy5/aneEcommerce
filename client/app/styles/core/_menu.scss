@@ -8,6 +8,7 @@
   height: 100%;
   width: 370px;
   z-index: 1000;
+  overflow-y: auto;
   // -webkit-box-shadow: $box-shadow;
   // box-shadow: $box-shadow;
   @include transition($layout-transition-higher-speed);
