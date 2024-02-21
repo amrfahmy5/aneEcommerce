@@ -136,7 +136,7 @@ export const handleCheckout = () => {
     };
 
     dispatch(toggleCart());
-    dispatch(push('/login'));
+    dispatch(push('/register'));
     dispatch(success(successfulOptions));
   };
 };

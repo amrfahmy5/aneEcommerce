@@ -83,11 +83,14 @@ button {
   &.custom-btn-primary {
     position: relative;
     border: $border-default;
-    background-color: $btn-bg;
+    background-color: $primary-bg; //#2d67b2 ;$btn-bg;
+
+
     -webkit-transition: $layout-transition-speed;
     transition: $layout-transition-speed;
 
     .btn-text {
+      color: $white !important; //amr
       -webkit-transition: $layout-transition-speed;
       transition: $layout-transition-speed;
     }

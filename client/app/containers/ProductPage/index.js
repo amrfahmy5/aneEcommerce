@@ -157,7 +157,7 @@ class ProductPage extends React.PureComponent {
                         />
                       )}
                     </div>
-                    <div class="alert alert-danger" role="alert">
+                    <div class="alert alert-primary" role="alert">
                       Add Multible product to your cart then confirm your request , Wait US ! 
                     </div>
                   </div>

@@ -30,7 +30,7 @@ const CartSummary = (props) => {
             <p className='summary-value'>{cartTotal} L.E</p>
           </Col>
         </Row> */}
-        <div class="alert alert-danger" role="alert">
+        <div class="alert alert-primary" role="alert">
           Confirm your request and We will call you ASAP , WAIT US :)
         </div>
       </Container>
