@@ -7,9 +7,10 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
+import { withTranslation } from "react-i18next";
 
 const MiniBrand = props => {
-  const { categories, toggleCategory } = props;
+  const { categories, toggleCategory,t,i18n,} = props;
 
   const handleMenuItemClick = () => {
     toggleCategory();
@@ -37,7 +38,7 @@ const MiniBrand = props => {
               role='menuitem'
               onClick={handleMenuItemClick}
             >
-              {category.name}
+              {i18n.language=="en"?category.name:category.nameAr}
             </Link>
           </div>
         ))}
@@ -46,4 +47,4 @@ const MiniBrand = props => {
   );
 };
 
-export default MiniBrand;
+export default withTranslation()(MiniBrand);

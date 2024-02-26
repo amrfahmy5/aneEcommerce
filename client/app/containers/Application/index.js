@@ -37,6 +37,9 @@ import Footer from '../../components/Common/Footer';
 import Page404 from '../../components/Common/Page404';
 import { CART_ITEMS } from '../../constants';
 
+import { withTranslation } from "react-i18next";
+
+
 class Application extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -73,8 +76,9 @@ class Application extends React.PureComponent {
   }
 
   render() {
+    const {i18n,} = this.props;
     return (
-      <div className='application'>
+      <div className='application' dir={i18n.language=="en"?"ltr":"rtl"}>
         <Notification />
         <Navigation />
         <main className='main'>
@@ -125,4 +129,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, actions)(Application);
+export default withTranslation()(connect(mapStateToProps, actions)(Application));
