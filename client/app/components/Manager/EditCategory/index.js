@@ -52,6 +52,16 @@ const EditCategory = props => {
                 categoryChange(name, value);
               }}
             />
+             <Input
+              type={'text'}
+              error={formErrors['nameAr']}
+              name={'nameAr'}
+              placeholder={'Category Name In Arabic'}
+              value={category.nameAr}
+              onInputChange={(name, value) => {
+                categoryChange(name, value);
+              }}
+            />
           </Col>
           <Col xs='12'>
             <Input
@@ -74,6 +84,16 @@ const EditCategory = props => {
               name={'description'}
               placeholder={'Category Description'}
               value={category.description}
+              onInputChange={(name, value) => {
+                categoryChange(name, value);
+              }}
+            />
+            <Input
+              type={'textarea'}
+              error={formErrors['descriptionAr']}
+              name={'descriptionAr'}
+              placeholder={'Category Description In Arabic'}
+              value={category.descriptionAr}
               onInputChange={(name, value) => {
                 categoryChange(name, value);
               }}

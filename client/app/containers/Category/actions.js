@@ -120,7 +120,9 @@ export const addCategory = () => {
     try {
       const rules = {
         name: 'required',
+        nameAr: 'required',
         description: 'required|max:200',
+        descriptionAr: 'required|max:200',
         products: 'required'
       };
 
@@ -129,12 +131,17 @@ export const addCategory = () => {
       const newCategory = {
         name: category.name,
         description: category.description,
-        products: unformatSelectOptions(category.products)
+        products: unformatSelectOptions(category.products),
+        nameAr: category.nameAr,
+        descriptionAr: category.descriptionAr
+
       };
 
       const { isValid, errors } = allFieldsValidation(newCategory, rules, {
         'required.name': 'Name is required.',
         'required.description': 'Description is required.',
+        'required.nameAr': 'Arabic Name is required.',
+        'required.descriptionAr': 'Arabic Description is required.',
         'max.description':
           'Description may not be greater than 200 characters.',
         'required.products': 'Products are required.'
@@ -173,8 +180,10 @@ export const updateCategory = () => {
     try {
       const rules = {
         name: 'required',
+        nameAr: 'required',
         slug: 'required|alpha_dash',
         description: 'required|max:200',
+        descriptionAr: 'required|max:200',
         products: 'required'
       };
 
@@ -182,17 +191,21 @@ export const updateCategory = () => {
 
       const newCategory = {
         name: category.name,
+        nameAr: category.nameAr,
         slug: category.slug,
         description: category.description,
+        descriptionAr: category.descriptionAr,
         products: category.products && unformatSelectOptions(category.products)
       };
 
       const { isValid, errors } = allFieldsValidation(newCategory, rules, {
         'required.name': 'Name is required.',
+        'required.nameAr': 'Arabic Name is required.',
         'required.slug': 'Slug is required.',
         'alpha_dash.slug':
           'Slug may have alpha-numeric characters, as well as dashes and underscores only.',
         'required.description': 'Description is required.',
+        'required.descriptionAr': 'Arabic Description is required.',
         'max.description':
           'Description may not be greater than 200 characters.',
         'required.products': 'Products are required.'

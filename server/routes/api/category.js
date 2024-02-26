@@ -11,11 +11,16 @@ const { ROLES } = require('../../constants');
 
 router.post('/add', auth, role.check(ROLES.Admin), (req, res) => {
   const name = req.body.name;
+  const nameAr = req.body.nameAr;
+
+  console.log(req.body);
   const description = req.body.description;
+  const descriptionAr = req.body.descriptionAr;
+
   const products = req.body.products;
   const isActive = req.body.isActive;
 
-  if (!description || !name) {
+  if (!description || !name || !descriptionAr || !nameAr) {
     return res
       .status(400)
       .json({ error: 'You must enter description & name.' });
@@ -23,7 +28,9 @@ router.post('/add', auth, role.check(ROLES.Admin), (req, res) => {
 
   const category = new Category({
     name,
+    nameAr,
     description,
+    descriptionAr,
     products,
     isActive
   });

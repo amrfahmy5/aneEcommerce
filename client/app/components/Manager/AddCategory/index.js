@@ -43,6 +43,16 @@ const AddCategory = props => {
                 categoryChange(name, value);
               }}
             />
+            <Input
+              type={'text'}
+              error={formErrors['nameAr']}
+              name={'nameAr'}
+              placeholder={'Category Name in Arabic'}
+              value={categoryFormData.nameAr}
+              onInputChange={(name, value) => {
+                categoryChange(name, value);
+              }}
+            />
           </Col>
           <Col xs='12' md='12'>
             <Input
@@ -52,6 +62,16 @@ const AddCategory = props => {
               name={'description'}
               placeholder={'Category Description'}
               value={categoryFormData.description}
+              onInputChange={(name, value) => {
+                categoryChange(name, value);
+              }}
+            />
+            <Input
+              type={'textarea'}
+              error={formErrors['descriptionAr']}
+              name={'descriptionAr'}
+              placeholder={'Category Description In Arabic'}
+              value={categoryFormData.descriptionAr}
               onInputChange={(name, value) => {
                 categoryChange(name, value);
               }}

@@ -20,6 +20,10 @@ const CategorySchema = new Schema({
     type: String,
     trim: true
   },
+  nameAr: {
+    type: String,
+    trim: true
+  },
   slug: {
     type: String,
     slug: 'name',
@@ -30,6 +34,10 @@ const CategorySchema = new Schema({
     contentType: String
   },
   description: {
+    type: String,
+    trim: true
+  },
+  descriptionAr: {
     type: String,
     trim: true
   },
