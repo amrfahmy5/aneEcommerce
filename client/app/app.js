@@ -31,37 +31,10 @@ import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import "rc-slider/assets/index.css";
 
 
-//multible lang
-// import { I18nextProvider, initReactI18next } from "react-i18next";
 
-// import global_ar from "./translations/ar/global.json";
-// import global_en from "./translations/en/global.json";
-// import "i18next";
-// import { I18nextProvider ,initReactI18next } from "react-i18next";
-// import i18next from "i18next";
-// i18next.use(initReactI18next)
-// .init({
-//   resources: {
-//     en: {  translation:global_en },
-//     ar: {  translation: global_ar },
-//   },
-//   lng: "en",
-//   fallbackLng : "en",
-//   interpolation: { escapeValue: false },
-// });
 
 import { I18nextProvider } from "react-i18next";
-
 import i18n from "./i18n"
-
-
-
-
-
-
-
-
-
 
 
 
