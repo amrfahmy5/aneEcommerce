@@ -22,14 +22,14 @@ const Checkout = props => {
         {authenticated ? (
           <Button
             variant='primary'
-            text='Place Order'
+            text='Confirm'
             onClick={() => placeOrder()}
           />
         ) : (
           <Button
             variant='primary'
             // text='Proceed To Checkout'
-            text='Confirm'
+            text='Login then Confirm'
             onClick={() => handleCheckout()}
           />
         )}
