@@ -87,7 +87,7 @@
 
   .fa {
     cursor: pointer;
-    color: $theme-dark-gray;
+    color: $secondary-color;
     font-size: $font-size-x-huge !important;
   }
 
@@ -281,4 +281,11 @@
       }
     }
   }
+}
+
+
+
+
+.langSelect.form-control {
+  width: auto;
 }

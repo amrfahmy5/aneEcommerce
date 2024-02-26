@@ -36,6 +36,10 @@ import MiniCategory from "../../components/Store//MiniCategory";
 import Menu from "../NavigationMenu";
 import Cart from "../Cart";
 
+import { withTranslation } from "react-i18next";
+
+// import i18n from "i18next";
+
 class Navigation extends React.PureComponent {
   componentDidMount() {
     this.props.fetchStoreBrands();
@@ -133,6 +137,8 @@ class Navigation extends React.PureComponent {
       onSearch,
       onSuggestionsFetchRequested,
       onSuggestionsClearRequested,
+      t,
+      i18n,
     } = this.props;
 
     const inputProps = {
@@ -148,27 +154,39 @@ class Navigation extends React.PureComponent {
         <div className="header-info">
           <Container>
             <Row>
-              <Col md="4" className="text-center d-none d-md-block">
+              <Col md="3" className="text-center d-none d-md-block">
                 <i className="fa fa-truck" />
-                <span>After Sales Service</span>
+                <span>{t("slogan1")}</span>
               </Col>
-              <Col md="4" className="text-center d-none d-md-block">
+              <Col md="3" className="text-center d-none d-md-block">
                 <i className="fa fa-credit-card" />
-                <span>As Good As Gold</span>
+                <span>{t("slogan2")}</span>
               </Col>
-              <Col md="4" className="text-center d-none d-md-block">
-                <i className="fa fa-phone" />
-                <span>Call us +20 111 812 2288</span>
-              </Col>
-              <Col xs="12" className="text-center d-block d-md-none">
+              <Col md="3" xs="8" className="text-center">
                 <i className="fa fa-phone" />
                 <a href="tel:01118122288">
-                  <span> Need advice? Call us +20 111 812 2288</span>
+                  <span> {t("call")}</span>
                 </a>
+              </Col>
+
+              <Col md="3" xs="4" className="text-center">
+                <select
+                  className="langSelect form-control input-sm form-control-sm"
+                  aria-label="Default select example"
+                  data-width="fit"
+                  onChange={() => {
+                    i18n.changeLanguage(event.target.value);
+                  }}
+                >
+                  <option value="en" >English</option>
+                  <option value="ar">العربية - AR</option>
+                </select>
+                
               </Col>
             </Row>
           </Container>
         </div>
+
         <Container>
           <Row className="align-items-center top-header">
             <Col
@@ -179,22 +197,12 @@ class Navigation extends React.PureComponent {
               className="pr-0"
             >
               <div className="brand">
-                {categories && categories.length > 0 && (
-                  <Button
-                    borderless
-                    variant="empty"
-                    className="d-none d-md-block"
-                    ariaLabel="open the menu"
-                    icon={<BarsIcon />}
-                    onClick={() => this.toggleMenu()}
-                  />
-                )}
                 <Link to="/">
-                  <h1 className="logo">ANE</h1>
-                  {/* <img src="/images/logo.png" width="100" /> */}
+                  <h1 className="logo">{t("logo")}</h1>
                 </Link>
               </div>
             </Col>
+            {/* Search */}
             <Col
               xs={{ size: 12, order: 4 }}
               sm={{ size: 12, order: 4 }}
@@ -214,6 +222,7 @@ class Navigation extends React.PureComponent {
                 }}
               />
             </Col>
+            {/* Bar */}
             <Col
               xs={{ size: 12, order: 2 }}
               sm={{ size: 12, order: 2 }}
@@ -232,6 +241,7 @@ class Navigation extends React.PureComponent {
                 <CartIcon cartItems={cartItems} onClick={toggleCart} />
               </div>
             </Col>
+
             <Col
               xs={{ size: 12, order: 2 }}
               sm={{ size: 12, order: 2 }}
@@ -240,21 +250,26 @@ class Navigation extends React.PureComponent {
               // className='px-0'
             >
               <Navbar color="light" light expand="md" className="mt-1 mt-md-0">
-                <CartIcon
-                  className="d-none d-md-block"
-                  cartItems={cartItems}
-                  onClick={toggleCart}
-                />
                 <Nav navbar>
+                  {/* cart */}
+                  <NavItem>
+                    <CartIcon
+                      className="d-none d-md-block"
+                      cartItems={cartItems}
+                      onClick={toggleCart}
+                    />
+                  </NavItem>
+
                   {brands && brands.length > 0 && (
                     <Dropdown
                       nav
                       inNavbar
                       toggle={() => this.toggleBrand()}
                       isOpen={isBrandOpen}
+                      className="d-none d-md-block"
                     >
                       <DropdownToggle nav>
-                        <span className="NavTitle">Brands</span>
+                        <span className="NavTitle">{t("brands")}</span>
 
                         <span className="fa fa-chevron-down dropdown-caret"></span>
                       </DropdownToggle>
@@ -275,9 +290,10 @@ class Navigation extends React.PureComponent {
                       inNavbar
                       toggle={() => this.toggleCategory()}
                       isOpen={isCategoryOpen}
+                      className="d-none d-md-block"
                     >
                       <DropdownToggle nav>
-                        <span className="NavTitle">Categories</span>
+                        <span className="NavTitle">{t("categories")}</span>
 
                         <span className="fa fa-chevron-down dropdown-caret"></span>
                       </DropdownToggle>
@@ -292,16 +308,18 @@ class Navigation extends React.PureComponent {
                     </Dropdown>
                   )}
 
+                  {/* shop */}
                   <NavItem>
                     <NavLink
                       tag={ActiveLink}
                       to="/shop"
                       activeClassName="active"
                     >
-                      <span className="NavTitle">Shop</span>
+                      <span className="NavTitle">{t("shop")}</span>
                     </NavLink>
                   </NavItem>
 
+                  {/* login - logout - signup - dashboard - welcome */}
                   {authenticated ? (
                     <UncontrolledDropdown nav inNavbar>
                       <DropdownToggle nav>
@@ -315,32 +333,38 @@ class Navigation extends React.PureComponent {
                         <DropdownItem
                           onClick={() => history.push("/dashboard")}
                         >
-                          Dashboard
+                          {t("dashboard")}
                         </DropdownItem>
-                        <DropdownItem onClick={signOut}>Sign Out</DropdownItem>
+                        <DropdownItem onClick={signOut}>
+                          {t("signOut")}
+                        </DropdownItem>
                       </DropdownMenu>
                     </UncontrolledDropdown>
                   ) : (
                     <UncontrolledDropdown nav inNavbar>
                       <DropdownToggle nav>
-                        <span className="NavTitle">Welcome!</span>
+                        <span className="NavTitle">{t("welcome")}</span>
 
                         <span className="fa fa-chevron-down dropdown-caret"></span>
                       </DropdownToggle>
                       <DropdownMenu right>
                         <DropdownItem onClick={() => history.push("/login")}>
-                          Login
+                          {t("login")}
                         </DropdownItem>
                         <DropdownItem onClick={() => history.push("/register")}>
-                          Sign Up
+                          {t("signUp")}
                         </DropdownItem>
                       </DropdownMenu>
                     </UncontrolledDropdown>
                   )}
-
+                  {/* white list */}
                   <NavItem>
-                    <NavLink tag={ActiveLink} to="/dashboard/wishlist" activeClassName="active">
-                      <i class="fa fa-heart" aria-hidden="true"></i>
+                    <NavLink
+                      tag={ActiveLink}
+                      to="/dashboard/wishlist"
+                      activeClassName="active"
+                    >
+                      <i className="fa fa-heart" aria-hidden="true"></i>
                     </NavLink>
                   </NavItem>
                 </Nav>
@@ -380,8 +404,13 @@ class Navigation extends React.PureComponent {
             onClick={toggleMenu}
           />
         </div>
-         <a class="whats-app" href="https://wa.me/+201121833830" target="_blank">
-          <i class="fa fa-whatsapp my-float"></i>
+
+        <a
+          className="whats-app"
+          href="https://wa.me/+201121833830"
+          target="_blank"
+        >
+          <i className="fa fa-whatsapp my-float"></i>
         </a>
       </header>
     );
@@ -404,4 +433,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, actions)(withRouter(Navigation));
+export default withTranslation()(
+  connect(mapStateToProps, actions)(withRouter(Navigation))
+);
