@@ -14,7 +14,7 @@ import Button from '../../Common/Button';
 import DropdownConfirm from '../../Common/DropdownConfirm';
 
 const OrderItems = props => {
-  const { order, user, updateOrderItemStatus } = props;
+  const { order, user, updateOrderItemStatus ,i18n } = props;
 
   const renderPopoverContent = item => {
     const statuses = Object.values(CART_ITEM_STATUS);
@@ -50,14 +50,14 @@ const OrderItems = props => {
     } else if (item.status !== 'Cancelled') {
       if (!isAdmin) {
         return (
-          <DropdownConfirm label='Cancel'>
+          <DropdownConfirm label={i18n.t('cancel')}>
             <div className='d-flex flex-column align-items-center justify-content-center p-2'>
-              <p className='text-center mb-2'>{`Are you sure you want to cancel ${item.product?.name}.`}</p>
+              <p className='text-center mb-2'>{`${i18n.t("confirmDelete")}${i18n.language=="en"?item.product?.name:item.product?.nameAr} ?`}</p>
               <Button
                 variant='danger'
                 id='CancelOrderItemPopover'
                 size='sm'
-                text='Confirm Cancel'
+                text={i18n.t("confirm")}
                 role='menuitem'
                 className='cancel-order-btn'
                 onClick={() => updateOrderItemStatus(item._id, 'Cancelled')}
@@ -104,26 +104,27 @@ const OrderItems = props => {
                             className='item-link'
                           >
                             <h4 className='d-block item-name one-line-ellipsis'>
-                              {item.product?.name}
+                              {i18n.language=="en"? item.product?.name: item.product?.nameAr}
                             </h4>
                           </Link>
-                          <div className='d-flex align-items-center justify-content-between'>
+                          {/* <div className='d-flex align-items-center justify-content-between'>
                             <span className='price'>
-                              {item.purchasePrice || item.product.price}  L.E
+                              {item.purchasePrice || item.product.price}  {i18n.t("le")}
                             </span>
-                          </div>
+                          </div> */}
                         </>
                       ) : (
-                        <h4>Not Available</h4>
+                        <h4> {i18n.t("notAvail")}</h4>
                       )}
                     </div>
+                    
                     <div className='d-flex justify-content-between flex-wrap d-md-none mt-1'>
                       <p className='mb-1 mr-4'>
-                        Status
+                      {i18n.t("status")}
                         <span className='order-label order-status'>{` ${item.status}`}</span>
                       </p>
                       <p className='mb-1 mr-4'>
-                        Quantity
+                        {i18n.t("quantity")}
                         <span className='order-label'>{` ${item.quantity}`}</span>
                       </p>
                       {/* <p>
@@ -137,19 +138,20 @@ const OrderItems = props => {
                 <div className='d-none d-md-flex justify-content-between align-items-center box'>
                   <div className='text-center'>
                     <p className='order-label order-status'>{`${item.status}`}</p>
-                    <p>Status</p>
+                    <p>{i18n.t("status")}</p>
                   </div>
 
                   <div className='text-center'>
                     <p className='order-label'>{` ${item.quantity}`}</p>
-                    <p>Quantity</p>
+                    <p>{i18n.t("quantity")}</p>
+
                   </div>
 
-                  <div className='text-center'>
+                  {/* <div className='text-center'>
                     <p className='order-label'>{` ${item.totalPrice} L.E`}</p>
 
                     <p>Total Price</p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               {item.product && (

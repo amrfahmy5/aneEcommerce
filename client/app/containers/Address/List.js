@@ -13,6 +13,7 @@ import actions from '../../actions';
 import AddressList from '../../components/Manager/AddressList';
 import SubPage from '../../components/Manager/SubPage';
 import NotFound from '../../components/Common/NotFound';
+import { withTranslation } from "react-i18next";
 
 class List extends React.PureComponent {
   componentDidMount() {
@@ -20,17 +21,17 @@ class List extends React.PureComponent {
   }
 
   render() {
-    const { history, addresses } = this.props;
+    const { history, addresses,t,i18n } = this.props;
 
     return (
       <>
         <SubPage
-          title='Addresses'
-          actionTitle={'Add'}
+          title={t("address")}
+          actionTitle={t("add")}
           handleAction={() => history.push('/dashboard/address/add')}
         >
           {addresses.length > 0 ? (
-            <AddressList addresses={addresses} />
+            <AddressList addresses={addresses} i18n={i18n} />
           ) : (
             <NotFound message='No addresses found.' />
           )}
@@ -46,4 +47,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, actions)(List);
+export default withTranslation()(connect(mapStateToProps, actions)(List));

@@ -18,6 +18,8 @@ import NotFound from '../../components/Common/NotFound';
 import LoadingIndicator from '../../components/Common/LoadingIndicator';
 import Pagination from '../../components/Common/Pagination';
 
+import { withTranslation } from "react-i18next";
+
 class List extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -48,7 +50,7 @@ class List extends React.PureComponent {
   };
 
   render() {
-    const { history, user, orders, isLoading, advancedFilters } = this.props;
+    const { history, user, orders, isLoading, advancedFilters ,t,i18n } = this.props;
     const { search } = this.state;
     const isSearch = search.length > 0;
     const filteredOrders = search
@@ -61,7 +63,7 @@ class List extends React.PureComponent {
     return (
       <div className='order-dashboard'>
         <SubPage
-          title='Your Orders'
+          title={t("yOrders")}
           actionTitle={user.role === ROLES.Admin && 'Customer Orders'}
           handleAction={() =>
             user.role === ROLES.Admin &&
@@ -72,6 +74,7 @@ class List extends React.PureComponent {
             onBlur={this.handleOrderSearch}
             onSearch={this.handleOrderSearch}
             onSearchSubmit={this.handleOrderSearch}
+            i18n={i18n}
           />
 
           {isLoading && <LoadingIndicator />}
@@ -85,14 +88,14 @@ class List extends React.PureComponent {
               )}
 
               <SearchResultMeta
-                label='orders'
+                label={t('orders')}
                 count={isSearch ? filteredOrders.length : advancedFilters.count}
               />
-              <OrderList orders={filteredOrders} />
+              <OrderList orders={filteredOrders}i18n={i18n} />
             </>
           )}
           {!isLoading && !displayOrders && (
-            <NotFound message='You have no orders yet.' />
+            <NotFound message={t("noOrder")} />
           )}
         </SubPage>
       </div>
@@ -110,4 +113,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, actions)(List);
+export default withTranslation()(connect(mapStateToProps, actions)(List));

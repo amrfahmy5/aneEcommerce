@@ -10,8 +10,9 @@ import { Link } from 'react-router-dom';
 
 import { AddressIcon, CheckIcon } from '../../Common/Icon';
 
+
 const AddressList = props => {
-  const { addresses } = props;
+  const { addresses , i18n } = props;
 
   return (
     <div className='a-list'>
@@ -29,12 +30,12 @@ const AddressList = props => {
               {address.isDefault ? (
                 <div className='d-flex align-items-center justify-content-between mb-2'>
                   <h4 className='mb-0 mr-2 one-line-ellipsis'>
-                    Default Delivery Address
+                     {i18n.t("deliveryAddress")} {i18n.t("default")}
                   </h4>
                   <CheckIcon className='text-green' />
                 </div>
               ) : (
-                <h4 className='mb-0'>Delivery Address</h4>
+                <h4 className='mb-0'>{i18n.t("deliveryAddress")} </h4>
               )}
               <p className='mb-2 address-desc'>
                 {`${address?.address} ${address?.city}, ${address?.country}, ${address?.zipCode}`}

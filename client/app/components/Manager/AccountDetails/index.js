@@ -14,7 +14,7 @@ import Input from '../../Common/Input';
 import Button from '../../Common/Button';
 
 const AccountDetails = props => {
-  const { user, accountChange, updateProfile } = props;
+  const { user, accountChange, updateProfile , i18n } = props;
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -42,9 +42,9 @@ const AccountDetails = props => {
           <Col xs='12' md='6'>
             <Input
               type={'text'}
-              label={'First Name'}
+              label={i18n.t("fname")}
               name={'firstName'}
-              placeholder={'Please Enter Your First Name'}
+              placeholder={i18n.t("phFname")}
               value={user.firstName ? user.firstName : ''}
               onInputChange={(name, value) => {
                 accountChange(name, value);
@@ -54,9 +54,9 @@ const AccountDetails = props => {
           <Col xs='12' md='6'>
             <Input
               type={'text'}
-              label={'Brand Name'}
+              label={i18n.t("bname")}
               name={'lastName'}
-              placeholder={'Please Enter Your Brand Name'}
+              placeholder={i18n.t("phBname")}
               value={user.lastName ? user.lastName : ''}
               onInputChange={(name, value) => {
                 accountChange(name, value);
@@ -79,9 +79,9 @@ const AccountDetails = props => {
           <Col xs='12' md='12'>
             <Input
               type={'text'}
-              label={'Phone Number'}
+              label={i18n.t("phoneNumber")}
               name={'phoneNumber'}
-              placeholder={'Please Enter Your Phone Number'}
+              placeholder={i18n.t("phPhoneNumber")}
               value={user.phoneNumber ? user.phoneNumber : ''}
               onInputChange={(name, value) => {
                 accountChange(name, value);
@@ -91,7 +91,7 @@ const AccountDetails = props => {
         </Row>
         <hr />
         <div className='profile-actions'>
-          <Button type='submit' variant='secondary' text='Save changes' />
+          <Button type='submit' variant='secondary' text={i18n.t("saveChanges")} />
         </div>
       </form>
     </div>

@@ -17,14 +17,14 @@ import Merchant from '../../components/Manager/Dashboard/Merchant';
 import Customer from '../../components/Manager/Dashboard/Customer';
 import DisabledMerchantAccount from '../../components/Manager/DisabledAccount/Merchant';
 import LoadingIndicator from '../../components/Common/LoadingIndicator';
-
+import { withTranslation } from "react-i18next";
 class Dashboard extends React.PureComponent {
   componentDidMount() {
     this.props.fetchProfile();
   }
 
   render() {
-    const { user, isLoading, isMenuOpen, toggleDashboardMenu } = this.props;
+    const { user, isLoading, isMenuOpen, toggleDashboardMenu ,t,i18n} = this.props;
 
     if (isDisabledMerchantAccount(user))
       return <DisabledMerchantAccount user={user} />;
@@ -39,6 +39,7 @@ class Dashboard extends React.PureComponent {
             isMenuOpen={isMenuOpen}
             links={dashboardLinks[ROLES.Admin]}
             toggleMenu={toggleDashboardMenu}
+            i18n={i18n}
           />
         ) : user.role === ROLES.Merchant && user.merchant ? (
           <Merchant
@@ -46,6 +47,7 @@ class Dashboard extends React.PureComponent {
             isMenuOpen={isMenuOpen}
             links={dashboardLinks[ROLES.Merchant]}
             toggleMenu={toggleDashboardMenu}
+            i18n={i18n}
           />
         ) : (
           <Customer
@@ -53,6 +55,7 @@ class Dashboard extends React.PureComponent {
             isMenuOpen={isMenuOpen}
             links={dashboardLinks[ROLES.Member]}
             toggleMenu={toggleDashboardMenu}
+            i18n={i18n}
           />
         )}
       </>
@@ -68,4 +71,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, actions)(Dashboard);
+export default withTranslation()(connect(mapStateToProps, actions)(Dashboard));

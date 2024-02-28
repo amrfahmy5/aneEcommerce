@@ -70,7 +70,69 @@
     "loginfb":"تسحيل الدخول بواسطة الفيس ",
     "createAccount":"انشاء حساب جديد",
     "forgetPassword":"هل نسيت كلمة السر؟",
-    "backLogin":"العودة الى تسجيل الدخول"
+    "backLogin":"العودة الى تسجيل الدخول",
 
+    "acountDetails":"تفاصيل الحساب",
+    "saveChanges":"حفظ التعديلات",
 
+    "accountSecurity":"الامان",
+    "resetPassword":"تعيين كلمة المرور",
+    "oldPassword":"كلمة السر القديمة",
+    "confirmPassword":"تاكيد كلمة السر",
+
+    "default":"الافتراضى",
+    "deliveryAddress":"عنوان التسليم",
+    "addAddress":"اضافة عنوان",
+    "cancel":"الغاء",
+
+    "address":"العنوان",
+    "phAddress":"العنوان بالتفصيل",
+    "city" : "المدينة",
+    "state":"المحافظة",
+    "country":"البلد",
+    "phCountry":"من فضلك ادخل البلد",
+    "zipCode":"Zip Code",
+    "phZipCode":"Please Enter Your Zipcode",
+    "asDefault":"العنوان الافتراضى",
+    "egypt":"مصر",
+
+    "editAddress":"تعديل العنوان",
+    "delete":"حذف",
+
+    "washList":"المفضل",
+    "washListNoItem":"لا يوجد منتاجات مضافة الى المفضلة حتى الان .",
+    "wishlistDate":"تم الاضافة فى ",
+
+    "add":"اضافة",
+
+    "yOrders":"طلباتك",
+    
+    "searchOrder":"من فضلك ادخل رقم الطلب كامل",
+    "search":"بحث",
+
+    "orders":"طلب",
+
+    "orderNumber":"طلب رقم ",
+    "orderDate":"طلب فى ",
+    "status":"الحالة",
+    "noOrder":"لا يوجد لديك طلبات حتى الان.",
+
+    "Account Details": "تفاصيل الحساب",
+    "Account Security": "الامان",
+    "Address": "العنوان",
+    "Orders": "الطلبات و عروض الاسعار", 
+    "WishList": "المفضل",
+    "Support": "الدعم" ,
+
+    "noOrderFound":"لا يوجد طلبات .",
+    "orderDetails":"تفاصيل الطلب",
+    "backOrder":"العودة لكل الطلبات",
+    "orderId":"رقم الطلب",
+    "orderDat":"تاريخ الطلب",
+    "reDate":"بيانات الطالب",
+    "cancelOrder":"الغاء الاوردر",
+
+    "le":"جنية",
+    "notAvail":"غير متاح",
+    "confirmDelete":"هل انت متاكد من الغاء "
 }

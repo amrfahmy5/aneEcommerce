@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 import { formatDate } from '../../../utils/date';
 
 const OrderList = props => {
-  const { orders } = props;
+  const { orders , i18n} = props;
 
   const renderFirstItem = order => {
     if (order.products) {
@@ -43,29 +43,30 @@ const OrderList = props => {
               <div className='d-flex flex-column flex-xl-row justify-content-between flex-1 ml-lg-2 mr-xl-4 p-3'>
                 <div className='order-details'>
                   <div className='mb-1'>
-                    <span>Status</span>
+                    <span>{i18n.t("status")}</span>
                     {order?.products ? (
                       <span className='order-label order-status'>{` ${order?.products[0].status}`}</span>
                     ) : (
                       <span className='order-label order-status'>{` Unavailable`}</span>
                     )}
                   </div>
+
                   <div className='mb-1'>
-                    <span>Order #</span>
+                    <span>{i18n.t("orderNumber")}</span>
                     <span className='order-label'>{` ${order._id}`}</span>
                   </div>
                   <div className='mb-1'>
-                    <span>Ordered on</span>
+                    <span>{i18n.t("orderDate")}</span>
                     <span className='order-label'>{` ${formatDate(
                       order.created
                     )}`}</span>
                   </div>
-                  <div className='mb-1'>
+                  {/* <div className='mb-1'>
                     <span>Order Total</span>
                     <span className='order-label'>{` $${
                       order?.totalWithTax ? order?.totalWithTax : 0
                     }`}</span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

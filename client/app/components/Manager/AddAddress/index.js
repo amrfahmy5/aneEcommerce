@@ -13,7 +13,7 @@ import Input from '../../Common/Input';
 import Button from '../../Common/Button';
 
 const AddAddress = props => {
-  const { addressFormData, formErrors, addressChange, addAddress } = props;
+  const { addressFormData, formErrors, addressChange, addAddress,i18n } = props;
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -28,9 +28,9 @@ const AddAddress = props => {
             <Input
               type={'text'}
               error={formErrors['address']}
-              label={'Address'}
+              label={i18n.t("address")}
               name={'address'}
-              placeholder={'Address: Street, House No / Apartment No'}
+              placeholder={i18n.t("phAddress")}
               value={addressFormData.address}
               onInputChange={(name, value) => {
                 addressChange(name, value);
@@ -41,9 +41,9 @@ const AddAddress = props => {
             <Input
               type={'text'}
               error={formErrors['city']}
-              label={'City'}
+              label={i18n.t("city")}
               name={'city'}
-              placeholder={'City'}
+              placeholder={i18n.t("city")}
               value={addressFormData.city}
               onInputChange={(name, value) => {
                 addressChange(name, value);
@@ -54,9 +54,9 @@ const AddAddress = props => {
             <Input
               type={'text'}
               error={formErrors['state']}
-              label={'State'}
+              label={i18n.t("state")}
               name={'state'}
-              placeholder={'State'}
+              placeholder={i18n.t("state")}
               value={addressFormData.state}
               onInputChange={(name, value) => {
                 addressChange(name, value);
@@ -67,10 +67,11 @@ const AddAddress = props => {
             <Input
               type={'text'}
               error={formErrors['country']}
-              label={'Country'}
+              label={i18n.t("country")}
               name={'country'}
-              placeholder={'Please Enter Your country'}
-              value={addressFormData.country}
+              placeholder={i18n.t("phCountry")}
+              // value={addressFormData.country}
+              value={i18n.t("egypt")}
               onInputChange={(name, value) => {
                 addressChange(name, value);
               }}
@@ -80,9 +81,9 @@ const AddAddress = props => {
             <Input
               type={'text'}
               error={formErrors['zipCode']}
-              label={'Zipcode'}
+              label={i18n.t("zipCode")}
               name={'zipCode'}
-              placeholder={'Please Enter Your Zipcode'}
+              placeholder={i18n.t("phZipCode")}
               value={addressFormData.zipCode}
               onInputChange={(name, value) => {
                 addressChange(name, value);
@@ -92,7 +93,7 @@ const AddAddress = props => {
           <Col xs='12' md='12'>
             <Checkbox
               id={'default'}
-              label={'As the Default'}
+              label={i18n.t("asDefault")}
               name={'isDefault'}
               checked={addressFormData.isDefault}
               onChange={(name, value) => {
@@ -103,7 +104,7 @@ const AddAddress = props => {
         </Row>
         <hr />
         <div className='add-address-actions'>
-          <Button type='submit' text='Add Address' />
+          <Button type='submit' text={i18n.t("addAddress")} />
         </div>
       </form>
     </div>

@@ -12,7 +12,7 @@ import { Collapse, Navbar } from 'reactstrap';
 import Button from '../../Common/Button';
 
 const AccountMenu = props => {
-  const { user, isMenuOpen, links, toggleMenu } = props;
+  const { user, isMenuOpen, links, toggleMenu,i18n } = props;
 
   const getAllowedProvider = link => {
     if (!link.provider) return true;
@@ -47,7 +47,7 @@ const AccountMenu = props => {
                     activeClassName='active-link'
                     exact
                   >
-                    {link.name}
+                    {i18n.t(link.name)}
                   </NavLink>
                 </li>
               );

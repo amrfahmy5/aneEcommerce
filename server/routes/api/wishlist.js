@@ -56,7 +56,7 @@ router.get('/', auth, async (req, res) => {
     const wishlist = await Wishlist.find({ user, isLiked: true })
       .populate({
         path: 'product',
-        select: 'name slug price imageUrl'
+        select: 'name nameAr slug price imageUrl'
       })
       .sort('-updated');
 

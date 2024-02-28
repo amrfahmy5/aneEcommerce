@@ -17,7 +17,8 @@ const ResetPasswordForm = props => {
     formErrors,
     isToken,
     resetPasswordChange,
-    resetPassword
+    resetPassword,
+    i18n
   } = props;
 
   const handleSubmit = event => {
@@ -33,9 +34,9 @@ const ResetPasswordForm = props => {
             <Input
               type={'password'}
               error={formErrors['password']}
-              label={'Password'}
+              label={i18n.t('password')}
               name={'password'}
-              placeholder={isToken ? 'Password' : 'Old Password'}
+              placeholder={isToken ? i18n.t('password') : i18n.t('oldPassword') }
               value={resetFormData.password}
               onInputChange={(name, value) => {
                 resetPasswordChange(name, value);
@@ -46,9 +47,9 @@ const ResetPasswordForm = props => {
             <Input
               type={'password'}
               error={formErrors['confirmPassword']}
-              label={'Confirm Password'}
+              label={i18n.t('confirmPassword')}
               name={'confirmPassword'}
-              placeholder={'Confirm Password'}
+              placeholder={i18n.t('confirmPassword')}
               value={resetFormData.confirmPassword}
               onInputChange={(name, value) => {
                 resetPasswordChange(name, value);
@@ -58,7 +59,7 @@ const ResetPasswordForm = props => {
         </Row>
         <hr />
         <div className='reset-actions'>
-          <Button type='submit' text='Reset Password' />
+          <Button type='submit' text={i18n.t("resetPassword")} />
         </div>
       </form>
     </div>

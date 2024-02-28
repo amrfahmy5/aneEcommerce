@@ -14,6 +14,7 @@ import SubPage from '../../components/Manager/SubPage';
 import WishList from '../../components/Manager/WishList';
 import NotFound from '../../components/Common/NotFound';
 import LoadingIndicator from '../../components/Common/LoadingIndicator';
+import { withTranslation } from "react-i18next";
 
 class Wishlist extends React.PureComponent {
   componentDidMount() {
@@ -21,19 +22,19 @@ class Wishlist extends React.PureComponent {
   }
 
   render() {
-    const { wishlist, isLoading, updateWishlist } = this.props;
+    const { wishlist, isLoading, updateWishlist ,t,i18n} = this.props;
 
     const displayWishlist = wishlist.length > 0;
 
     return (
       <div className='wishlist-dashboard'>
-        <SubPage title={'Your Wishlist'} isMenuOpen={null}>
+        <SubPage title={t("washList")} isMenuOpen={null}>
           {isLoading && <LoadingIndicator />}
           {displayWishlist && (
-            <WishList wishlist={wishlist} updateWishlist={updateWishlist} />
+            <WishList wishlist={wishlist} updateWishlist={updateWishlist} i18n={i18n}/>
           )}
           {!isLoading && !displayWishlist && (
-            <NotFound message='You have no items in your wishlist yet.' />
+            <NotFound message={t("washListNoItem")} />
           )}
         </SubPage>
       </div>
@@ -48,4 +49,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, actions)(Wishlist);
+export default withTranslation()(connect(mapStateToProps, actions)(Wishlist));

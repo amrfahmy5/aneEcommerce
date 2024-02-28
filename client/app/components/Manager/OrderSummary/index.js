@@ -9,7 +9,7 @@ import React from 'react';
 import { Col } from 'reactstrap';
 
 const OrderSummary = props => {
-  const { order } = props;
+  const { order , i18n } = props;
 
   return (
     <Col className='order-summary pt-3'>

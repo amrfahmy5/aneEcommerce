@@ -70,6 +70,69 @@
     "loginfb":"Login with FaceBook",
     "createAccount":"Create An Account",
     "forgetPassword":"Forgot Password?",
-    "backLogin":"Back to login"
+    "backLogin":"Back to login",
+
+    "acountDetails":"Account Details",
+    "saveChanges":"Save Changes",
+
+    "accountSecurity":"Account Security",
+    "resetPassword":"Reset Password",
+    "oldPassword":"Old Password",
+    "confirmPassword":"Confirm Password",
+
+    "default":"Default",
+    "deliveryAddress":"Delivery Address",
+    "addAddress":"Add Address",
+    "cancel":"Cancel",
+
+    "address":"Address",
+    "phAddress":"Address: Street, House No / Apartment No",
+    "city" : "City",
+    "state":"State",
+    "country":"Country",
+    "phCountry":"Please Enter Your country",
+    "zipCode":"Zip Code",
+    "phZipCode":"Please Enter Your Zipcode",
+    "asDefault":"As the Default",
+    "egypt":"Egypt",
+
+    "editAddress":"Edit Address",
+    "delete":"Delete",
+
+    "washList":"Your Wishlist",
+    "washListNoItem":"You have no items in your wishlist yet.",
+    "wishlistDate":"Wishlist Added on ",
+
+    "add":"Add",
+
+    "yOrders":"Your Orders",
     
+    "searchOrder":"Type the complete order ID",
+    "search":"Search",
+
+    "orders":"orders",
+
+    "orderNumber":"Order # ",
+    "orderDate":"Ordered on ",
+    "status":"Status",
+    "noOrder":"You have no orders yet.",
+
+    "Account Details": "Account Details", 
+    "Account Security": "Account Security",
+    "Address": "Address",
+    "Orders": "Orders",
+    "WishList": "WishList",
+    "Support": "Support",
+
+    "noOrderFound":"No order found.",
+    "orderDetails":"Order Details",
+    "backOrder":"Back to orders",
+    "orderId":"Order ID",
+    "orderDat":"Order Date",
+    "reDate":"Requster Data",
+    "cancelOrder":"Cancel Order",
+
+    "le":"L.E",
+    "notAvail":"Not Available",
+    "confirmDelete":"Are you sure you want to cancel "
 }

@@ -14,6 +14,8 @@ import OrderDetails from '../../components/Manager/OrderDetails';
 import NotFound from '../../components/Common/NotFound';
 import LoadingIndicator from '../../components/Common/LoadingIndicator';
 
+import { withTranslation } from "react-i18next";
+
 class OrderPage extends React.PureComponent {
   componentDidMount() {
     const id = this.props.match.params.id;
@@ -34,7 +36,7 @@ class OrderPage extends React.PureComponent {
       user,
       isLoading,
       cancelOrder,
-      updateOrderItemStatus
+      updateOrderItemStatus,t,i18n
     } = this.props;
 
     return (
@@ -47,6 +49,7 @@ class OrderPage extends React.PureComponent {
             user={user}
             cancelOrder={cancelOrder}
             updateOrderItemStatus={updateOrderItemStatus}
+            i18n={i18n}
             onBack={() => {
               if (window.location.toString().includes('success')) {
                 history.push('/dashboard/orders');
@@ -56,7 +59,7 @@ class OrderPage extends React.PureComponent {
             }}
           />
         ) : (
-          <NotFound message='No order found.' />
+          <NotFound message={t("noOrderFound")} />
         )}
       </div>
     );
@@ -71,4 +74,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, actions)(OrderPage);
+export default withTranslation()(connect(mapStateToProps, actions)(OrderPage));

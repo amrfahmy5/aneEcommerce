@@ -13,7 +13,7 @@ import Button from '../../Common/Button';
 import { XIcon } from '../../Common/Icon';
 
 const WishList = props => {
-  const { wishlist, updateWishlist } = props;
+  const { wishlist, updateWishlist,i18n } = props;
 
   const getProductImage = item => {
     if (item.product) {
@@ -47,9 +47,9 @@ const WishList = props => {
           >
             {getProductImage(item)}
             <div className='d-flex flex-column justify-content-center px-3 text-truncate'>
-              <h4 className='text-truncate'>{item.product.name}</h4>
-              <p className='mb-2 price'>{item.product.price} L.E</p>
-              <label className='text-truncate'>{`Wishlist Added on ${formatDate(
+              <h4 className='text-truncate'>{i18n.language=="en"?item.product.name:item.product.nameAr}</h4>
+              {/* <p className='mb-2 price'>{item.product.price} L.E</p> */}
+              <label className='text-truncate'>{`${i18n.t("wishlistDate")} ${formatDate(
                 item.created
               )}`}</label>
             </div>

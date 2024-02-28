@@ -13,6 +13,8 @@ import actions from '../../actions';
 import AddAddress from '../../components/Manager/AddAddress';
 import SubPage from '../../components/Manager/SubPage';
 
+import { withTranslation } from "react-i18next";
+
 class Add extends React.PureComponent {
   render() {
     const {
@@ -20,13 +22,14 @@ class Add extends React.PureComponent {
       addressFormData,
       formErrors,
       addressChange,
-      addAddress
+      addAddress,
+      t,i18n
     } = this.props;
 
     return (
       <SubPage
-        title='Add Address'
-        actionTitle='Cancel'
+        title={t("addAddress")}
+        actionTitle={t("cancel")}
         handleAction={() => history.goBack()}
       >
         <AddAddress
@@ -34,6 +37,7 @@ class Add extends React.PureComponent {
           formErrors={formErrors}
           addressChange={addressChange}
           addAddress={addAddress}
+          i18n={i18n}
         />
       </SubPage>
     );
@@ -47,4 +51,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, actions)(Add);
+export default withTranslation()(connect(mapStateToProps, actions)(Add));

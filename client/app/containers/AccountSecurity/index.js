@@ -11,7 +11,7 @@ import actions from '../../actions';
 
 import SubPage from '../../components/Manager/SubPage';
 import ResetPasswordForm from '../../components/Common/ResetPasswordForm';
-
+import { withTranslation } from "react-i18next";
 class AccountSecurity extends React.PureComponent {
   componentDidMount() {}
 
@@ -20,19 +20,21 @@ class AccountSecurity extends React.PureComponent {
       resetFormData,
       formErrors,
       resetPasswordChange,
-      resetAccountPassword
+      resetAccountPassword,
+      t,i18n
     } = this.props;
 
     return (
       <div className='account-security'>
-        <SubPage title={'Account Security'} isMenuOpen={null}>
+        <SubPage title={t('accountSecurity')} isMenuOpen={null}>
           <div className='reset-form'>
-            <h4>Reset Password</h4>
+            <h4>{i18n.t("resetPassword")}</h4>
             <ResetPasswordForm
               resetFormData={resetFormData}
               formErrors={formErrors}
               resetPasswordChange={resetPasswordChange}
               resetPassword={resetAccountPassword}
+              i18n={i18n}
             />
           </div>
         </SubPage>
@@ -49,4 +51,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, actions)(AccountSecurity);
+export default withTranslation()(connect(mapStateToProps, actions)(AccountSecurity));

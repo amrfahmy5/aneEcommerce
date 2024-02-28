@@ -13,6 +13,7 @@ import actions from '../../actions';
 import EditAddress from '../../components/Manager/EditAddress';
 import SubPage from '../../components/Manager/SubPage';
 import NotFound from '../../components/Common/NotFound';
+import { withTranslation } from "react-i18next";
 
 class Edit extends React.PureComponent {
   componentDidMount() {
@@ -36,12 +37,13 @@ class Edit extends React.PureComponent {
       defaultChange,
       updateAddress,
       deleteAddress
+      ,t,i18n
     } = this.props;
 
     return (
       <SubPage
-        title='Edit Address'
-        actionTitle='Cancel'
+        title={t("editAddress")}
+        actionTitle={t("cancel")}
         handleAction={() => history.goBack()}
       >
         {address?._id ? (
@@ -52,6 +54,7 @@ class Edit extends React.PureComponent {
             updateAddress={updateAddress}
             deleteAddress={deleteAddress}
             defaultChange={defaultChange}
+            i18n={i18n}
           />
         ) : (
           <NotFound message='No address found.' />
@@ -68,4 +71,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, actions)(Edit);
+export default withTranslation()(connect(mapStateToProps, actions)(Edit));

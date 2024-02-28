@@ -13,7 +13,7 @@ import Input from '../../Common/Input';
 import Button from '../../Common/Button';
 
 const EditAddress = props => {
-  const { address, addressChange, formErrors, updateAddress, deleteAddress } =
+  const { address, addressChange, formErrors, updateAddress, deleteAddress ,i18n} =
     props;
 
   const handleSubmit = event => {
@@ -29,9 +29,9 @@ const EditAddress = props => {
             <Input
               type={'text'}
               error={formErrors['address']}
-              label={'Address'}
+              label={i18n.t("address")}
               name={'address'}
-              placeholder={'Address: Street, House No / Apartment No'}
+              placeholder={i18n.t("phAddress")}
               value={address.address}
               onInputChange={(name, value) => {
                 addressChange(name, value);
@@ -42,9 +42,9 @@ const EditAddress = props => {
             <Input
               type={'text'}
               error={formErrors['city']}
-              label={'City'}
+              label={i18n.t("city")}
               name={'city'}
-              placeholder={'City'}
+              placeholder={i18n.t("city")}
               value={address.city}
               onInputChange={(name, value) => {
                 addressChange(name, value);
@@ -55,9 +55,9 @@ const EditAddress = props => {
             <Input
               type={'text'}
               error={formErrors['state']}
-              label={'State'}
+              label={i18n.t("state")}
               name={'state'}
-              placeholder={'State'}
+              placeholder={i18n.t("state")}
               value={address.state}
               onInputChange={(name, value) => {
                 addressChange(name, value);
@@ -68,10 +68,11 @@ const EditAddress = props => {
             <Input
               type={'text'}
               error={formErrors['country']}
-              label={'Country'}
+              label={i18n.t("country")}
               name={'country'}
-              placeholder={'Please Enter Your Country'}
-              value={address.country}
+              placeholder={i18n.t("phCountry")}
+              // value={address.country}
+              value={i18n.t("egypt")}
               onInputChange={(name, value) => {
                 addressChange(name, value);
               }}
@@ -81,9 +82,9 @@ const EditAddress = props => {
             <Input
               type={'text'}
               error={formErrors['zipCode']}
-              label={'Zipcode'}
+              label={i18n.t("zipCode")}
               name={'zipCode'}
-              placeholder={'Please Enter Your Zipcode'}
+              placeholder={i18n.t("phZipCode")}
               value={address.zipCode}
               onInputChange={(name, value) => {
                 addressChange(name, value);
@@ -93,7 +94,7 @@ const EditAddress = props => {
           <Col xs='12' md='12'>
             <Checkbox
               id={'default'}
-              label={'As the Default'}
+              label={i18n.t("asDefault")}
               name={'isDefault'}
               checked={address.isDefault}
               onChange={(name, value) => {
@@ -106,12 +107,12 @@ const EditAddress = props => {
         <div className='d-flex flex-column flex-md-row'>
           <Button
             type='submit'
-            text='Save'
+            text={i18n.t("saveChanges")}
             className='mb-3 mb-md-0 mr-0 mr-md-3'
           />
           <Button
             variant='danger'
-            text='Delete'
+            text={i18n.t("delete")}
             onClick={() => deleteAddress(address._id)}
           />
         </div>
