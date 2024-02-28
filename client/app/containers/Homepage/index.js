@@ -27,11 +27,11 @@ import ProductsShop from '../ProductsShop';
 import Page404 from '../../components/Common/Page404';
 import ProductFilter from '../../components/Store/ProductFilter';
 
-
+import { withTranslation } from "react-i18next";
 
 class Homepage extends React.PureComponent {
   render() {
-    let { products, filterProducts } = this.props;
+    let { products, filterProducts ,t,i18n } = this.props;
     return (
       <div className='homepage'>
         <Row className='flex-row'>
@@ -71,7 +71,7 @@ class Homepage extends React.PureComponent {
         {/* more product */}
         <Row xs="12" className='infoBlue align-items-center mx-0 mt-7 mt-lg-4 py-3 py-lg-3 text-center'>
           <Col>
-            <a href='/shop'><span class="infoBlue">For More Products click here ...  </span></a>
+            <a href='/shop'><span class="infoBlue">{t("moreProduct")}</span></a>
           </Col>
         </Row>
 
@@ -80,7 +80,7 @@ class Homepage extends React.PureComponent {
           <Col xs='6' lg='6' className='order-lg-1 mb-3 px-3 px-md-2'>
           <div className='d-flex flex-column h-100 justify-content-between brands text-center'>
                 <div class="shadow p-2 mb-1 rounded info">
-                  Our Brands
+                  {t("ourBrand")}
                 </div>
                 <CarouselSlider
                   swipeable={true}
@@ -102,10 +102,10 @@ class Homepage extends React.PureComponent {
              
              
              
-              {/* Brands */}
+              {/* customers */}
               <div className='text-center'>
                 <div class="shadow p-2 mb-1 rounded info">
-                  Our Customers
+                  {t("ourCustomer")}
                 </div>
                 <CarouselSlider
                   swipeable={true}
@@ -135,4 +135,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, actions)(Homepage);
+export default withTranslation()(connect(mapStateToProps, actions)(Homepage));

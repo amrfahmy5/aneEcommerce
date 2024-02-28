@@ -14,7 +14,9 @@
     "signUp":"Sign Up",
     "signOut":"Sign Out",
     "dashboard":"Dashboard",
+    "searchProducts" : "Search Products" ,
     
-    "moreProduct" : "For More Products click here ...  "
-
+    "moreProduct" : "For More Products click here ...  ",
+    "ourCustomer" : "Our Customers" ,
+    "ourBrand" : "Our Brands"
 }

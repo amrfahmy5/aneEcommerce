@@ -9,9 +9,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import AddToWishList from '../AddToWishList';
+import { withTranslation } from "react-i18next";
 
 const ProductList = props => {
-  const { products, updateWishlist, authenticated } = props;
+  const { products, updateWishlist, authenticated ,t,i18n } = props;
 
   return (
     <div className='product-list'>
@@ -48,13 +49,13 @@ const ProductList = props => {
                   </div>
                   <div className='item-body'>
                     <div className='item-details p-3'>
-                      <h1 className='item-name'>{product.name}</h1>
+                      <h1 className='item-name'>{i18n.language=="en"?product.name:product.nameAr}</h1>
                       {product.brand && Object.keys(product.brand).length > 0 && (
                         <p className='by'>
                           By <span>{product.brand.name}</span>
                         </p>
                       )}
-                      <p className='item-desc mb-0'>{product.description}</p>
+                      <p className='item-desc mb-0'>{i18n.language=="en"?product.description:product.descriptionAr}</p>
                     </div>
                   </div>
                   <div className='d-flex flex-row justify-content-between align-items-center px-4 mb-2 item-footer'>
@@ -85,4 +86,4 @@ const ProductList = props => {
   );
 };
 
-export default ProductList;
+export default withTranslation()(ProductList);
