@@ -5,7 +5,6 @@
     "callMobile":"اتصل بنا +20 111 812 2288",
 
     "logo" : "ANE" ,
-
     "brands":"الماركات" ,
     "categories":"الاصناف",
     "shop":"تسوق" ,
@@ -26,5 +25,28 @@
     "showing":"عرض:",
     "of":"من",
     "products":"منتجات",
-    "sortBy":"ترتيب عن طريق"
+    "sortBy":"ترتيب عن طريق",
+
+    "outOfStock":"غير متاح بالمخازن",
+    "inStock":"متاح بالمخازن",
+    "seeMoreFrom":"المزيد من ",
+    "quantity":"الكمية",
+    "productQuantity":"كمية المنتج",
+    "removeFromBag":"ازالة من عربة التسوق",
+    "requestQuatation":"طلب عرض سعر",
+    "orderGuide":"يمكنك اضافة العديد من المتاجات الى عربة التسوق الخاص بك ثم طلب عرض سعر لهم جميعا وسوف نتواصل معك قريبا , انتظرنا",
+    "noProductFound" : "لا يوجد منتج",
+    "rating":"التقيم",
+    "basedOn":"بنائا على",
+    "reviews":"اراء",
+    "star":"نجمة",
+    "noReviewAlarm":"كن اول من يضيف تقييم",
+    "addReview":"اضافة المراجعة",
+    "title":"العنوان",
+    "comment":"التعليق",
+    "recommendQuestion":"هل ترشح هذا المنتج ؟",
+    "reviewButton":"اضافة المراجعة",
+    "phReviewTitle":"اكتب عنوان المراجعة",
+    "phReviewComment":"اكتب التعليق"
+
 }

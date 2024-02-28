@@ -18,7 +18,7 @@ import NotFound from "../../components/Common/NotFound";
 import { BagIcon } from "../../components/Common/Icon";
 import ProductReviews from "../../components/Store/ProductReviews";
 import SocialShare from "../../components/Store/SocialShare";
-
+import { withTranslation } from "react-i18next";
 class ProductPage extends React.PureComponent {
   componentDidMount() {
     const slug = this.props.match.params.slug;
@@ -54,6 +54,7 @@ class ProductPage extends React.PureComponent {
       reviewFormData,
       reviewChange,
       reviewFormErrors,
+      t,i18n
     } = this.props;
 
     return (
@@ -79,9 +80,9 @@ class ProductPage extends React.PureComponent {
                     }`}
                   /> */}
                   {product.inventory <= 0 && !shopFormErrors["quantity"] ? (
-                    <p className="stock out-of-stock">Out of stock</p>
+                    <p className="stock out-of-stock">{t("outOfStock")}</p>
                   ) : (
-                    <p className="stock in-stock">In stock</p>
+                    <p className="stock in-stock">{t("inStock")}</p>
                   )}
                 </div>
               </Col>
@@ -90,13 +91,13 @@ class ProductPage extends React.PureComponent {
                   <div className="item-box">
                     <div className="item-details">
                       <h1 className="item-name one-line-ellipsis">
-                        {product.name}
+                        {i18n.language=="en"? product.name:product.nameAr}
                       </h1>
                       <p className="sku">{product.sku}</p>
                       <hr />
                       {product.brand && (
                         <p className="by">
-                          see more from{" "}
+                          {t("seeMoreFrom")}{" "}
                           <Link
                             to={`/shop/brand/${product.brand.slug}`}
                             className="default-link"
@@ -105,19 +106,19 @@ class ProductPage extends React.PureComponent {
                           </Link>
                         </p>
                       )}
-                      <p className="item-desc">{product.description}</p>
+                      <p className="item-desc">{i18n.language=="en"?product.description:product.descriptionAr}</p>
                       {/* <p className='price'>{product.price} L.E</p> */}
                     </div>
                     <div className="item-customize">
                       <Input
                         type={"number"}
                         error={shopFormErrors["quantity"]}
-                        label={"Quantity"}
+                        label={t("quantity")}
                         name={"quantity"}
                         decimals={false}
                         min={1}
                         max={product.inventory}
-                        placeholder={"Product Quantity"}
+                        placeholder={t("productQuantity")}
                         disabled={
                           product.inventory <= 0 && !shopFormErrors["quantity"]
                         }
@@ -138,7 +139,7 @@ class ProductPage extends React.PureComponent {
                             product.inventory <= 0 &&
                             !shopFormErrors["quantity"]
                           }
-                          text="Remove From Bag"
+                          text={t("removeFromBag")}
                           className="bag-btn"
                           icon={<BagIcon />}
                           onClick={() => handleRemoveFromCart(product)}
@@ -150,15 +151,17 @@ class ProductPage extends React.PureComponent {
                             product.quantity <= 0 && !shopFormErrors["quantity"]
                           }
                           // text="Add To Bag"
-                          text="Request a Quotation"
+                          text={t("requestQuatation")}
                           className="bag-btn"
                           icon={<BagIcon />}
+                          // icon={<span className="fa fa-shopping-cart fa-lg"></span>}
+
                           onClick={() => handleAddToCart(product)}
                         />
                       )}
                     </div>
                     <div class="alert alert-primary" role="alert">
-                      Add Multible product to your cart then confirm your request , Wait US ! 
+                      {t("orderGuide")}
                     </div>
                   </div>
                 </div>
@@ -171,10 +174,11 @@ class ProductPage extends React.PureComponent {
               reviewsSummary={reviewsSummary}
               reviewChange={reviewChange}
               addReview={addProductReview}
+              i18n={i18n}
             />
           </>
         ) : (
-          <NotFound message="No product found." />
+          <NotFound message={t("noProductFound")} />
         )}
       </div>
     );
@@ -201,4 +205,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, actions)(ProductPage);
+export default withTranslation()(connect(mapStateToProps, actions)(ProductPage));

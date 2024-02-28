@@ -5,7 +5,6 @@
     "callMobile":"Need advice? Call us +20 111 812 2288",
 
     "logo" : "ANE" ,
-
     "brands":"Brands" ,
     "categories":"Categories",
     "shop":"Shop" ,
@@ -25,7 +24,29 @@
     "seeAll":"See all",
     "showing":"Showing:",
     "of":"of",
-    "products":"products of",
-    "sortBy":"Sort by"
+    "products":"products",
+    "sortBy":"Sort by",
+
+    "outOfStock":"Out of stock",
+    "inStock":"In stock",
+    "seeMoreFrom":"see more from",
+    "quantity":"Quantity",
+    "productQuantity":"Product Quantity",
+    "removeFromBag":"Remove From Cart",
+    "requestQuatation":"Request a Quotation",
+    "orderGuide":"Add Multible product to your cart then confirm your request , Wait US ! ",
+    "noProductFound" : "No product found.",
+    "rating":"Rating",
+    "basedOn":"based on",
+    "reviews":"reviews",
+    "star":"star",
+    "noReviewAlarm":"Be the first to add a review.",
+    "addReview":"Add Review",
+    "title":"Title",
+    "comment":"Comment",
+    "recommendQuestion":"Will you recommend this product?",
+    "reviewButton":"Publish Review",
+    "phReviewTitle":"Enter Review title",
+    "phReviewComment":"Write Review"
 
 }
