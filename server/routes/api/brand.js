@@ -14,9 +14,10 @@ router.post('/add', auth, role.check(ROLES.Admin), async (req, res) => {
   try {
     const name = req.body.name;
     const description = req.body.description;
+    const descriptionAr = req.body.descriptionAr;
     const isActive = req.body.isActive;
 
-    if (!description || !name) {
+    if (!description || !name || !descriptionAr) {
       return res
         .status(400)
         .json({ error: 'You must enter description & name.' });
@@ -25,6 +26,7 @@ router.post('/add', auth, role.check(ROLES.Admin), async (req, res) => {
     const brand = new Brand({
       name,
       description,
+      descriptionAr,
       isActive
     });
 

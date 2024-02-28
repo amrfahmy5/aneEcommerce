@@ -123,7 +123,8 @@ export const addBrand = () => {
     try {
       const rules = {
         name: 'required',
-        description: 'required|max:200'
+        description: 'required|max:200',
+        descriptionAr: 'required|max:200'
       };
 
       const brand = getState().brand.brandFormData;
@@ -131,6 +132,7 @@ export const addBrand = () => {
       const { isValid, errors } = allFieldsValidation(brand, rules, {
         'required.name': 'Name is required.',
         'required.description': 'Description is required.',
+        'required.descriptionAr': 'Arabic Description is required.',
         'max.description': 'Description may not be greater than 200 characters.'
       });
 
@@ -169,7 +171,9 @@ export const updateBrand = () => {
       const rules = {
         name: 'required',
         slug: 'required|alpha_dash',
-        description: 'required|max:200'
+        description: 'required|max:200',
+        descriptionAr: 'required|max:200'
+
       };
 
       const brand = getState().brand.brand;
@@ -177,7 +181,9 @@ export const updateBrand = () => {
       const newBrand = {
         name: brand.name,
         slug: brand.slug,
-        description: brand.description
+        description: brand.description,
+        descriptionAr: brand.descriptionAr
+
       };
 
       const { isValid, errors } = allFieldsValidation(newBrand, rules, {
@@ -186,6 +192,7 @@ export const updateBrand = () => {
         'alpha_dash.slug':
           'Slug may have alpha-numeric characters, as well as dashes and underscores only.',
         'required.description': 'Description is required.',
+        'required.descriptionAr': 'Description is required.',
         'max.description': 'Description may not be greater than 200 characters.'
       });
 

@@ -49,6 +49,16 @@ const AddBrand = props => {
                 brandChange(name, value);
               }}
             />
+            <Input
+              type={'textarea'}
+              error={formErrors['descriptionAr']}
+              name={'descriptionAr'}
+              placeholder={'Brand Description In Arabic'}
+              value={brandFormData.descriptionAr}
+              onInputChange={(name, value) => {
+                brandChange(name, value);
+              }}
+            />
           </Col>
           <Col xs='12' md='12' className='my-2'>
             <Switch

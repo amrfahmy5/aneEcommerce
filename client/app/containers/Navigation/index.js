@@ -204,7 +204,7 @@ class Navigation extends React.PureComponent {
               <div className="brand">
                 <Link to="/">
                   {/* <h1 className="logo">{t("logo")}</h1> */}
-                  <img  height= "40rem" src="images/logo5.png" />
+                  <img  height= "40rem" src="/images/headerLogo.png" />
                 </Link>
               </div>
             </Col>
