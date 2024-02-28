@@ -17,6 +17,7 @@ import Button from '../../components/Common/Button';
 import LoadingIndicator from '../../components/Common/LoadingIndicator';
 import SignupProvider from '../../components/Common/SignupProvider';
 
+import { withTranslation } from "react-i18next";
 class Login extends React.PureComponent {
   render() {
     const {
@@ -26,7 +27,8 @@ class Login extends React.PureComponent {
       login,
       formErrors,
       isLoading,
-      isSubmitting
+      isSubmitting,t,i18n
+      
     } = this.props;
 
     if (authenticated) return <Redirect to='/dashboard' />;
@@ -43,7 +45,7 @@ class Login extends React.PureComponent {
     return (
       <div className='login-form'>
         {isLoading && <LoadingIndicator />}
-        <h2>Login</h2>
+        <h2>{t("login")}</h2>
         <hr />
         <form onSubmit={handleSubmit} noValidate>
           <Row>
@@ -56,9 +58,9 @@ class Login extends React.PureComponent {
                 <Input
                   type={'text'}
                   error={formErrors['email']}
-                  label={'Email Address'}
+                  label={t("email")}
                   name={'email'}
-                  placeholder={'Please Enter Your Email'}
+                  placeholder={t("phEmail")}
                   value={loginFormData.email}
                   onInputChange={(name, value) => {
                     loginChange(name, value);
@@ -69,9 +71,9 @@ class Login extends React.PureComponent {
                 <Input
                   type={'password'}
                   error={formErrors['password']}
-                  label={'Password'}
+                  label={t('Password')}
                   name={'password'}
-                  placeholder={'Please Enter Your Password'}
+                  placeholder={t("phPassword")}
                   value={loginFormData.password}
                   onInputChange={(name, value) => {
                     loginChange(name, value);
@@ -84,7 +86,7 @@ class Login extends React.PureComponent {
               md={{ size: '6', order: 2 }}
               className='mb-2 mb-md-0'
             >
-              <SignupProvider />
+              <SignupProvider i18n={i18n} />
             </Col>
           </Row>
           <hr />
@@ -93,11 +95,11 @@ class Login extends React.PureComponent {
               <Button
                 type='submit'
                 variant='primary'
-                text='Login'
+                text={t("login")}
                 disabled={isSubmitting}
               />
               <Button
-                text='Create an account'
+                text={t("createAccount")}
                 variant='link'
                 className='ml-md-3'
                 onClick={registerLink}
@@ -107,7 +109,7 @@ class Login extends React.PureComponent {
               className='redirect-link forgot-password-link'
               to={'/forgot-password'}
             >
-              Forgot Password?
+              {t("forgetPassword")}
             </Link>
           </div>
         </form>
@@ -126,4 +128,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, actions)(Login);
+export default withTranslation()(connect(mapStateToProps, actions)(Login));

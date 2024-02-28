@@ -53,5 +53,23 @@
     "conShopping":"Continue shopping",
     "confirm":"Confirm",
     "loginThenConfirm":"Login then Confirm",
-    "emptyShoppingCart":"Your shopping cart is empty"
+    "emptyShoppingCart":"Your shopping cart is empty",
+
+    "email":"Email Address",
+    "phEmail":"Please Enter Your Email",
+    "password":"Password",
+    "phPassword":"Please Enter Your Password",
+    "phoneNumber":"Phone Number",
+    "phPhoneNumber":"Please Enter Your Phone Number",
+    "fname":"First Name",
+    "phFname":"Please Enter Your First Name",
+    "bname":"Brand Name",
+    "phBname":"Please Enter Your Brand Name",
+
+    "loginGoogle":"Login with Google",
+    "loginfb":"Login with FaceBook",
+    "createAccount":"Create An Account",
+    "forgetPassword":"Forgot Password?",
+    "backLogin":"Back to login"
+    
 }

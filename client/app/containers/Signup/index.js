@@ -18,6 +18,9 @@ import Checkbox from '../../components/Common/Checkbox';
 import LoadingIndicator from '../../components/Common/LoadingIndicator';
 import SignupProvider from '../../components/Common/SignupProvider';
 
+import { withTranslation } from "react-i18next";
+
+
 class Signup extends React.PureComponent {
   render() {
     const {
@@ -29,7 +32,7 @@ class Signup extends React.PureComponent {
       isSubscribed,
       signupChange,
       signUp,
-      subscribeChange
+      subscribeChange,t,i18n
     } = this.props;
 
     if (authenticated) return <Redirect to='/dashboard' />;
@@ -42,7 +45,7 @@ class Signup extends React.PureComponent {
     return (
       <div className='signup-form'>
         {isLoading && <LoadingIndicator />}
-        <h2>Sign Up</h2>
+        <h2>{t("signUp")}</h2>
         <hr />
         <form onSubmit={handleSubmit} noValidate>
           <Row>
@@ -55,9 +58,9 @@ class Signup extends React.PureComponent {
                 <Input
                   type={'text'}
                   error={formErrors['email']}
-                  label={'Email Address'}
+                  label={t("email")}
                   name={'email'}
-                  placeholder={'Please Enter Your Email'}
+                  placeholder={t("phEmail")}
                   value={signupFormData.email}
                   onInputChange={(name, value) => {
                     signupChange(name, value);
@@ -68,9 +71,9 @@ class Signup extends React.PureComponent {
                 <Input
                   type={'text'}
                   error={formErrors['phoneNumber']}
-                  label={'Phone Number'}
+                  label={t("phoneNumber")}
                   name={'phoneNumber'}
-                  placeholder={'Please Enter Your Phone Number'}
+                  placeholder={t("phPhoneNumber")}
                   value={signupFormData.phoneNumber}
                   onInputChange={(name, value) => {
                     signupChange(name, value);
@@ -81,9 +84,9 @@ class Signup extends React.PureComponent {
                 <Input
                   type={'text'}
                   error={formErrors['firstName']}
-                  label={'First Name'}
+                  label={t("fname")}
                   name={'firstName'}
-                  placeholder={'Please Enter Your First Name'}
+                  placeholder={t("phFname")}
                   value={signupFormData.firstName}
                   onInputChange={(name, value) => {
                     signupChange(name, value);
@@ -94,9 +97,9 @@ class Signup extends React.PureComponent {
                 <Input
                   type={'text'}
                   error={formErrors['lastName']}
-                  label={'Brand Name'}
+                  label={t("bname")}
                   name={'lastName'}
-                  placeholder={'Please Enter Your Brand Name'}
+                  placeholder={t("phBname")}
                   value={signupFormData.lastName}
                   onInputChange={(name, value) => {
                     signupChange(name, value);
@@ -106,10 +109,10 @@ class Signup extends React.PureComponent {
               <Col xs='12' md='12'>
                 <Input
                   type={'password'}
-                  label={'Password'}
+                  label={t("password")}
                   error={formErrors['password']}
                   name={'password'}
-                  placeholder={'Please Enter Your Password'}
+                  placeholder={t("phPassword")}
                   value={signupFormData.password}
                   onInputChange={(name, value) => {
                     signupChange(name, value);
@@ -122,7 +125,7 @@ class Signup extends React.PureComponent {
               md={{ size: '6', order: 2 }}
               className='mb-2 mb-md-0'
             >
-              <SignupProvider />
+              <SignupProvider i18n={i18n} />
             </Col>
           </Row>
           <hr />
@@ -136,11 +139,11 @@ class Signup extends React.PureComponent {
             <Button
               type='submit'
               variant='primary'
-              text='Sign Up'
+              text={t("signUp")}
               disabled={isSubmitting}
             />
             <Link className='mt-3 mt-md-0 redirect-link' to={'/login'}>
-              Back to login
+              {t("backLogin")}
             </Link>
           </div>
         </form>
@@ -160,4 +163,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, actions)(Signup);
+export default withTranslation()(connect(mapStateToProps, actions)(Signup));
