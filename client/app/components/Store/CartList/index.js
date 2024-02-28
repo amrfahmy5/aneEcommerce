@@ -12,7 +12,7 @@ import { Container, Row, Col } from 'reactstrap';
 import Button from '../../Common/Button';
 
 const CartList = props => {
-  const { cartItems, handleRemoveFromCart } = props;
+  const { cartItems, handleRemoveFromCart ,i18n } = props;
 
   const handleProductClick = () => {
     props.toggleCart();
@@ -42,7 +42,7 @@ const CartList = props => {
                       onClick={handleProductClick}
                     >
                       <h2 className='item-name one-line-ellipsis'>
-                        {item.name}
+                        {i18n.language=="en"?item.name:item.nameAr}
                       </h2>
                     </Link>
                   </div>
@@ -67,7 +67,7 @@ const CartList = props => {
               </Row> */}
               <Row className='mb-2 align-items-center'>
                 <Col xs='9'>
-                  <p className='item-label'>quantity</p>
+                  <p className='item-label'>{i18n.t("quantity")}</p>
                 </Col>
                 <Col xs='3' className='text-right'>
                   <p className='value quantity'>{` ${item.quantity}`}</p>

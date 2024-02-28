@@ -47,6 +47,11 @@
     "recommendQuestion":"Will you recommend this product?",
     "reviewButton":"Publish Review",
     "phReviewTitle":"Enter Review title",
-    "phReviewComment":"Write Review"
+    "phReviewComment":"Write Review",
 
+    "cartGuide":"Confirm your request and We will call you ASAP , WAIT US :)",
+    "conShopping":"Continue shopping",
+    "confirm":"Confirm",
+    "loginThenConfirm":"Login then Confirm",
+    "emptyShoppingCart":"Your shopping cart is empty"
 }

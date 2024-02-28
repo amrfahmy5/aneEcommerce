@@ -14,6 +14,7 @@ import CartSummary from '../../components/Store/CartSummary';
 import Checkout from '../../components/Store/Checkout';
 import { BagIcon, CloseIcon } from '../../components/Common/Icon';
 import Button from '../../components/Common/Button';
+import { withTranslation } from "react-i18next";
 
 class Cart extends React.PureComponent {
   render() {
@@ -27,10 +28,12 @@ class Cart extends React.PureComponent {
       handleRemoveFromCart,
       placeOrder,
       authenticated
+      ,t,i18n
     } = this.props;
 
     return (
       <div className='cart'>
+        
         <div className='cart-header'>
           {isCartOpen && (
             <Button
@@ -48,22 +51,24 @@ class Cart extends React.PureComponent {
               toggleCart={toggleCart}
               cartItems={cartItems}
               handleRemoveFromCart={handleRemoveFromCart}
+              i18n={i18n}
             />
           </div>
         ) : (
           <div className='empty-cart'>
             <BagIcon />
-            <p>Your shopping cart is empty</p>
+            <p>{i18n.t("emptyShoppingCart")}</p>
           </div>
         )}
         {cartItems.length > 0 && (
           <div className='cart-checkout'>
-            <CartSummary cartTotal={cartTotal} />
+            <CartSummary cartTotal={cartTotal} i18n={i18n} />
             <Checkout
               handleShopping={handleShopping}
               handleCheckout={handleCheckout}
               placeOrder={placeOrder}
               authenticated={authenticated}
+              i18n={i18n}
             />
           </div>
         )}
@@ -81,4 +86,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, actions)(Cart);
+export default withTranslation()(connect(mapStateToProps, actions)(Cart));

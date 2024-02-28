@@ -47,6 +47,12 @@
     "recommendQuestion":"هل ترشح هذا المنتج ؟",
     "reviewButton":"اضافة المراجعة",
     "phReviewTitle":"اكتب عنوان المراجعة",
-    "phReviewComment":"اكتب التعليق"
+    "phReviewComment":"اكتب التعليق",
+
+    "cartGuide":"قم بالتاكيد على الطلب وسيتم التواصل معك قريبا - تسجيل الدخول يتم عن طريق خطوة واحدة فقط",
+    "conShopping":"اكمال التسوق",
+    "confirm":"تاكيد",
+    "loginThenConfirm":"تسجيل الدخول والتاكيد",
+    "emptyShoppingCart":"عربة التسوق فارغة"
 
 }

@@ -9,7 +9,7 @@ import React from "react";
 import { Container, Row, Col } from "reactstrap";
 
 const CartSummary = (props) => {
-  const { cartTotal } = props;
+  const { cartTotal ,i18n} = props;
 
   return (
     <div className="cart-summary">
@@ -31,7 +31,7 @@ const CartSummary = (props) => {
           </Col>
         </Row> */}
         <div class="alert alert-primary" role="alert">
-          Confirm your request and We will call you ASAP , WAIT US :)
+          {i18n.t("cartGuide")}
         </div>
       </Container>
     </div>
