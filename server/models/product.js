@@ -19,6 +19,10 @@ const ProductSchema = new Schema({
     type: String,
     trim: true
   },
+  nameAr: {
+    type: String,
+    trim: true
+  },
   slug: {
     type: String,
     slug: 'name',
@@ -31,6 +35,10 @@ const ProductSchema = new Schema({
     type: String
   },
   description: {
+    type: String,
+    trim: true
+  },
+  descriptionAr: {
     type: String,
     trim: true
   },

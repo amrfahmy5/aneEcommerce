@@ -64,6 +64,16 @@ const AddProduct = props => {
                 productChange(name, value);
               }}
             />
+            <Input
+              type={'text'}
+              error={formErrors['nameAr']}
+              name={'nameAr'}
+              placeholder={'Product Name In Arabic'}
+              value={productFormData.nameAr}
+              onInputChange={(name, value) => {
+                productChange(name, value);
+              }}
+            />
           </Col>
           <Col xs='12' md='12'>
             <Input
@@ -73,6 +83,16 @@ const AddProduct = props => {
               name={'description'}
               placeholder={'Product Description'}
               value={productFormData.description}
+              onInputChange={(name, value) => {
+                productChange(name, value);
+              }}
+            />
+            <Input
+              type={'textarea'}
+              error={formErrors['descriptionAr']}
+              name={'descriptionAr'}
+              placeholder={'Product Description In Arabic'}
+              value={productFormData.descriptionAr}
               onInputChange={(name, value) => {
                 productChange(name, value);
               }}

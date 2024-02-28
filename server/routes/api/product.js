@@ -263,7 +263,9 @@ router.post(
     try {
       const sku = req.body.sku;
       const name = req.body.name;
+      const nameAr = req.body.nameAr;
       const description = req.body.description;
+      const descriptionAr = req.body.descriptionAr;
       const quantity = req.body.quantity;
       const price = req.body.price;
       const taxable = req.body.taxable;
@@ -275,7 +277,7 @@ router.post(
         return res.status(400).json({ error: 'You must enter sku.' });
       }
 
-      if (!description || !name) {
+      if (!description || !name ||!descriptionAr || !nameAr) {
         return res
           .status(400)
           .json({ error: 'You must enter description & name.' });
@@ -300,7 +302,9 @@ router.post(
       const product = new Product({
         sku,
         name,
+        nameAr,
         description,
+        descriptionAr,
         quantity,
         price,
         taxable,

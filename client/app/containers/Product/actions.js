@@ -242,7 +242,9 @@ export const addProduct = () => {
       const rules = {
         sku: 'required|alpha_dash',
         name: 'required',
+        nameAr: 'required',
         description: 'required|max:200',
+        descriptionAr: 'required|max:200',
         quantity: 'required|numeric',
         price: 'required|numeric',
         taxable: 'required',
@@ -259,7 +261,9 @@ export const addProduct = () => {
       const newProduct = {
         sku: product.sku,
         name: product.name,
+        nameAr: product.nameAr,
         description: product.description,
+        descriptionAr: product.descriptionAr,
         price: product.price,
         quantity: product.quantity,
         image: product.image,
@@ -278,7 +282,9 @@ export const addProduct = () => {
         'alpha_dash.sku':
           'Sku may have alpha-numeric characters, as well as dashes and underscores only.',
         'required.name': 'Name is required.',
+        'required.nameAr': 'Arabic Name is required.',
         'required.description': 'Description is required.',
+        'required.descriptionAr': 'Arabic Description is required.',
         'max.description':
           'Description may not be greater than 200 characters.',
         'required.quantity': 'Quantity is required.',
@@ -335,9 +341,11 @@ export const updateProduct = () => {
     try {
       const rules = {
         name: 'required',
+        nameAr: 'required',
         sku: 'required|alpha_dash',
         slug: 'required|alpha_dash',
         description: 'required|max:200',
+        descriptionAr: 'required|max:200',
         quantity: 'required|numeric',
         price: 'required|numeric',
         taxable: 'required',
@@ -350,9 +358,11 @@ export const updateProduct = () => {
 
       const newProduct = {
         name: product.name,
+        nameAr: product.nameAr,
         sku: product.sku,
         slug: product.slug,
         description: product.description,
+        descriptionAr: product.descriptionAr,
         quantity: product.quantity,
         price: product.price,
         taxable: product.taxable,
@@ -361,6 +371,7 @@ export const updateProduct = () => {
 
       const { isValid, errors } = allFieldsValidation(newProduct, rules, {
         'required.name': 'Name is required.',
+        'required.nameAr': 'Arabic Name is required.',
         'required.sku': 'Sku is required.',
         'alpha_dash.sku':
           'Sku may have alpha-numeric characters, as well as dashes and underscores only.',
@@ -368,6 +379,7 @@ export const updateProduct = () => {
         'alpha_dash.slug':
           'Slug may have alpha-numeric characters, as well as dashes and underscores only.',
         'required.description': 'Description is required.',
+        'required.descriptionAr': 'Arabic Description is required.',
         'max.description':
           'Description may not be greater than 200 characters.',
         'required.quantity': 'Quantity is required.',
