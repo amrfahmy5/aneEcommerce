@@ -18,5 +18,14 @@
     
     "moreProduct" : "For More Products click here ...  ",
     "ourCustomer" : "Our Customers" ,
-    "ourBrand" : "Our Brands"
+    "ourBrand" : "Our Brands",
+
+    "shopByBrand": "Shop By Brand",
+    "shopByCategory" : "Shop By Category" ,
+    "seeAll":"See all",
+    "showing":"Showing:",
+    "of":"of",
+    "products":"products of",
+    "sortBy":"Sort by"
+
 }

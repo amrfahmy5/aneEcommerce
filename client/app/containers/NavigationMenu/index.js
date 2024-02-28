@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-
+import { withTranslation } from "react-i18next";
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { Container } from 'reactstrap';
@@ -17,7 +17,7 @@ import { CloseIcon } from '../../components/Common/Icon';
 
 class NavigationMenu extends React.PureComponent {
   render() {
-    const { isMenuOpen, categories, toggleMenu ,brands } = this.props;
+    const { isMenuOpen, categories, toggleMenu ,brands ,t,i18n} = this.props;
     const handleCategoryClick = () => {
       this.props.toggleMenu();
     };
@@ -37,7 +37,7 @@ class NavigationMenu extends React.PureComponent {
         </div>
         <div className='menu-body'>
           <Container>
-            <h3 className='menu-title'>Shop By Category</h3>
+            <h3 className='menu-title'>{t("shopByCategory")}</h3>
             <nav role='navigation'>
               <ul className='menu-list'>
                 {categories.map((link, index) => (
@@ -48,14 +48,14 @@ class NavigationMenu extends React.PureComponent {
                       activeClassName='active-link'
                       exact
                     >
-                      {link.name}
+                      {i18n.language?link.name:link.nameAr}
                     </NavLink>
                   </li>
                 ))}
               </ul>
             </nav>
 
-            <h3 className='menu-title'>Shop By Brand</h3>
+            <h3 className='menu-title'>{t("shopByBrand")}</h3>
              <nav role='navigation'>
               <ul className='menu-list'>
                 {brands.map((link, index) => (
@@ -87,4 +87,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, actions)(NavigationMenu);
+export default withTranslation()(connect(mapStateToProps, actions)(NavigationMenu));

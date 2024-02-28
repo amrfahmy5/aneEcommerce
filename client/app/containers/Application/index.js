@@ -78,7 +78,7 @@ class Application extends React.PureComponent {
   render() {
     const {i18n,} = this.props;
     return (
-      <div className='application' dir={i18n.language=="en"?"ltr":"rtl"}>
+      <div className={(i18n.language=="ar"?"ArabicStyle":"")+' application'}>
         <Notification />
         <Navigation />
         <main className='main'>

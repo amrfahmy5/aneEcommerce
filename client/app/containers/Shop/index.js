@@ -21,7 +21,7 @@ import Page404 from '../../components/Common/Page404';
 import ProductFilter from '../../components/Store/ProductFilter';
 import Pagination from '../../components/Common/Pagination';
 import SelectOption from '../../components/Common/SelectOption';
-
+import { withTranslation } from "react-i18next";
 class Shop extends React.PureComponent {
   componentDidMount() {
     document.body.classList.add('shop-page');
@@ -32,7 +32,7 @@ class Shop extends React.PureComponent {
   }
 
   render() {
-    const { products, advancedFilters, filterProducts } = this.props;
+    const { products, advancedFilters, filterProducts ,t,i18n} = this.props;
     const { totalPages, currentPage, count, limit, order } = advancedFilters;
     const displayPagination = totalPages > 1;
     const totalProducts = products.length;
@@ -64,10 +64,10 @@ class Shop extends React.PureComponent {
                 lg={{ size: 6, order: 1 }}
                 className='text-center text-md-left mt-3 mt-md-0 mb-1 mb-md-0'
               >
-                <span>Showing: </span>
+                <span>{t("showing")} </span>
                 {totalProducts > 0
-                  ? `${left}-${right} products of ${count} products`
-                  : `${count} products`}
+                  ? `${left}-${right} ${t("products")} ${t("of")} ${count} ${t("products")}`
+                  : `${count} ${t("products")}`}
               </Col>
               <Col
                 xs={{ size: 12, order: 2 }}
@@ -76,7 +76,7 @@ class Shop extends React.PureComponent {
                 lg={{ size: 2, order: 2 }}
                 className='text-right pr-0 d-none d-md-block'
               >
-                <span>Sort by</span>
+                <span>{t("sortBy")}</span>
               </Col>
               <Col
                 xs={{ size: 12, order: 2 }}
@@ -123,4 +123,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, actions)(Shop);
+export default withTranslation()(connect(mapStateToProps, actions)(Shop));

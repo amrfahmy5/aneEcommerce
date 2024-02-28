@@ -8,13 +8,14 @@ import React from 'react';
 
 import { Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { withTranslation } from "react-i18next";
 
 const BrandList = props => {
-  const { brands } = props;
+  const { brands ,t,i18n } = props;
 
   return (
     <div className='brand-list'>
-      <h3 className='text-uppercase'>Shop By Brand</h3>
+      <h3 className='text-uppercase'>{t("shopByBrand")}</h3>
       <hr />
       <Row className='flex-sm-row'>
         {brands.map((brand, index) => (
@@ -24,7 +25,7 @@ const BrandList = props => {
               className='d-block brand-box'
             >
               <h5>{brand.name}</h5>
-              <p className='brand-desc'>{brand.description}</p>
+              <p className='brand-desc'>{i18n.language=="en"? brand.description:brand.descriptionAr}</p>
             </Link>
           </Col>
         ))}
@@ -33,4 +34,4 @@ const BrandList = props => {
   );
 };
 
-export default BrandList;
+export default withTranslation()(BrandList);

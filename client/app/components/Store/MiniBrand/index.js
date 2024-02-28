@@ -7,9 +7,10 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
+import { withTranslation } from "react-i18next";
 
 const MiniBrand = props => {
-  const { brands, toggleBrand } = props;
+  const { brands, toggleBrand ,t,i18n } = props;
 
   const handleMenuItemClick = () => {
     toggleBrand();
@@ -18,14 +19,14 @@ const MiniBrand = props => {
   return (
     <div className='mini-brand-list'>
       <div className='d-flex align-items-center justify-content-between min-brand-title'>
-        <h4 className='mb-0 text-uppercase'>Shop By Brand</h4>
+        <h4 className='mb-0 text-uppercase'>{t("shopByBrand")}</h4>
         <Link
           to={'/brands'}
           className='redirect-link'
           role='menuitem'
           onClick={handleMenuItemClick}
         >
-          See all
+          {t("seeAll")}
         </Link>
       </div>
       <div className='mini-brand-block'>
@@ -46,4 +47,4 @@ const MiniBrand = props => {
   );
 };
 
-export default MiniBrand;
+export default withTranslation()(MiniBrand);

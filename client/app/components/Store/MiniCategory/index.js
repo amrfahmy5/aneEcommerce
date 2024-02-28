@@ -19,7 +19,7 @@ const MiniBrand = props => {
   return (
     <div className='mini-brand-list'>
       <div className='d-flex align-items-center justify-content-between min-brand-title'>
-        <h4 className='mb-0 text-uppercase'>Shop By Category</h4>
+        <h4 className='mb-0 text-uppercase'>{t("shopByCategory")}</h4>
         {/* <Link
           to={'/cateory'}
           className='redirect-link'
