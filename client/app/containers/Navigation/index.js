@@ -67,9 +67,14 @@ class Navigation extends React.PureComponent {
   }
 
   renderSuggestion(suggestion, { query, isHighlighted }) {
+    console.log("hiiiiiiiiiiii");
+    console.log(query);
+    console.log(suggestion);
+    
+
     const BoldName = (suggestion, query) => {
-      const matches = AutosuggestHighlightMatch(suggestion.name, query);
-      const parts = AutosuggestHighlightParse(suggestion.name, matches);
+      const matches = AutosuggestHighlightMatch(suggestion.nameAr, query);
+      const parts = AutosuggestHighlightParse(suggestion.nameAr, matches);
 
       return (
         <div>
@@ -105,11 +110,11 @@ class Navigation extends React.PureComponent {
                   <span className="name">{BoldName(suggestion, query)}</span>
                 </Col>
               </Row>
-              <Row>
+              {/* <Row>
                 <Col>
                   <span className="price">{suggestion.price} L.E</span>
                 </Col>
-              </Row>
+              </Row> */}
             </Container>
           </div>
         </div>

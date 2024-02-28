@@ -55,10 +55,14 @@ router.get('/item/:slug', async (req, res) => {
 router.get('/list/search/:name', async (req, res) => {
   try {
     const name = req.params.name;
+    const nameAr = req.params.name;
 
-    const productDoc = await Product.find(
+
+    const productDoc = await Product.find({$or:[
       { name: { $regex: new RegExp(name), $options: 'is' }, isActive: true },
-      { name: 1, slug: 1, imageUrl: 1, price: 1, _id: 0 }
+      { nameAr: { $regex: new RegExp(nameAr), $options: 'is' }, isActive: true }
+    ]},
+      { name: 1,nameAr: 1, slug: 1, imageUrl: 1, price: 1, _id: 0 }
     );
 
     if (productDoc.length < 0) {
