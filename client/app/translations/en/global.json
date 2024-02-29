@@ -134,5 +134,10 @@
 
     "le":"L.E",
     "notAvail":"Not Available",
-    "confirmDelete":"Are you sure you want to cancel "
+    "confirmDelete":"Are you sure you want to cancel ",
+
+    "orderThanks":"Thank you for your order.",
+    "isComplete":"is complete.",
+    "manageOrders":"Manage Orders",
+    "willcall":"We will call you soon by your phone number and email , please make sure your phone number is addedd sucessfully "
 }

@@ -13,6 +13,7 @@ import actions from '../../actions';
 
 import NotFound from '../../components/Common/NotFound';
 import LoadingIndicator from '../../components/Common/LoadingIndicator';
+import { withTranslation } from "react-i18next";
 
 class OrderSuccess extends React.PureComponent {
   componentDidMount() {
@@ -28,7 +29,7 @@ class OrderSuccess extends React.PureComponent {
   }
 
   render() {
-    const { order, isLoading } = this.props;
+    const { order, isLoading , t , i18n } = this.props;
 
     return (
       <div className='order-success'>
@@ -36,9 +37,9 @@ class OrderSuccess extends React.PureComponent {
           <LoadingIndicator />
         ) : order._id ? (
           <div className='order-message'>
-            <h2>Thank you for your order.</h2>
+            <h2>{t("orderThanks")}</h2>
             <p>
-              Order{' '}
+              {t("order")}{' '}
               <Link
                 to={{
                   pathname: `/order/${order._id}?success`,
@@ -49,15 +50,17 @@ class OrderSuccess extends React.PureComponent {
               >
                 #{order._id}
               </Link>{' '}
-              is complete.
+              {t("isComplete")}
             </p>
-            <p>A confirmation email will be sent to you shortly.</p>
+            {/* <p>A confirmation email will be sent to you shortly.</p> */}
+            <p>{t("willcall")}</p>
+
             <div className='order-success-actions'>
               <Link to='/dashboard/orders' className='btn-link'>
-                Manage Orders
+                {t("manageOrders")}
               </Link>
               <Link to='/shop' className='btn-link shopping-btn'>
-                Continue Shopping
+                {t("conShopping")}
               </Link>
             </div>
           </div>
@@ -76,4 +79,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, actions)(OrderSuccess);
+export default withTranslation()(connect(mapStateToProps, actions)(OrderSuccess));
