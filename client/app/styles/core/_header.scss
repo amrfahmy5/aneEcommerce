@@ -286,6 +286,15 @@
 
 
 
-.langSelect.form-control {
-  width: auto;
+.langSelect {
+  // width: auto;
+  width: 9rem !important;
+  height: 2rem;
+  img{
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+  span{
+    color: #000000;
+  }
 }

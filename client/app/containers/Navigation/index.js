@@ -29,6 +29,8 @@ import {
 import actions from "../../actions";
 
 import Button from "../../components/Common/Button";
+import Select from "react-select";
+
 import CartIcon from "../../components/Common/CartIcon";
 import { BarsIcon } from "../../components/Common/Icon";
 import MiniBrand from "../../components/Store//MiniBrand";
@@ -70,7 +72,6 @@ class Navigation extends React.PureComponent {
     console.log("hiiiiiiiiiiii");
     console.log(query);
     console.log(suggestion);
-    
 
     const BoldName = (suggestion, query) => {
       const matches = AutosuggestHighlightMatch(suggestion.nameAr, query);
@@ -123,6 +124,14 @@ class Navigation extends React.PureComponent {
   }
 
   render() {
+    const langOptions = [
+      {
+        value: "en",
+        label:' English',
+        image: '/images/flag-usa.jpg'
+      },
+      { value: "ar", label: "Ar/عربى" ,image: '/images/flag-eg.svg' },
+    ];
     const {
       history,
       authenticated,
@@ -167,26 +176,33 @@ class Navigation extends React.PureComponent {
                 <i className="fa fa-credit-card" />
                 <span>{t("slogan2")}</span>
               </Col>
-              <Col md="3" xs="8" className="text-center">
+              <Col md="3" xs="7" className="text-center">
                 <i className="fa fa-phone" />
                 <a href="tel:01118122288">
                   <span> {t("call")}</span>
                 </a>
               </Col>
 
-              <Col md="3" xs="4" className="text-center">
-                <select
-                  className="langSelect form-control input-sm form-control-sm"
-                  aria-label="Default select example"
-                  data-width="fit"
-                  onChange={() => {
-                    i18n.changeLanguage(event.target.value);
+              <Col md="3" xs="5" className="text-center">
+                <Select
+                  // isDisabled={disabled}
+                  className="select-container langSelect"
+                  classNamePrefix="react-select"
+                  options={langOptions}
+                  value={langOptions.filter(function (option) {
+                    return option.value === i18n.language;
+                  })}
+                  onChange={(value) => {
+                    i18n.changeLanguage(value.value);
                   }}
-                >
-                  <option value="en" >English</option>
-                  <option value="ar">العربية - AR</option>
-                </select>
-                
+                  formatOptionLabel={country => (
+                    
+                    <div className="country-option">
+                      <img src={country.image} alt="country-image" />
+                      <span>{country.label}</span>
+                    </div>
+                  )}
+                />
               </Col>
             </Row>
           </Container>
@@ -204,7 +220,7 @@ class Navigation extends React.PureComponent {
               <div className="brand">
                 <Link to="/">
                   {/* <h1 className="logo">{t("logo")}</h1> */}
-                  <img  height= "40rem" src="/images/headerLogoBlack.png" />
+                  <img height="40rem" src="/images/headerLogoBlack.png" />
                 </Link>
               </div>
             </Col>
