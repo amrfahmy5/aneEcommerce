@@ -139,5 +139,15 @@
     "orderThanks":"Thank you for your order.",
     "isComplete":"is complete.",
     "manageOrders":"Manage Orders",
-    "willcall":"We will call you soon by your phone number and email , please make sure your phone number is addedd sucessfully "
+    "willcall":"We will call you soon by your phone number and email , please make sure your phone number is addedd sucessfully ",
+
+    "changePassword":"Change Password",
+    "customerService":"Customer Service",
+    "links":"Links",
+    "about":"About",
+    "aboutDetails":"ANE is specialized in importing, distributing, and maintaining hotels, restaurants, and cafes equipment.",
+    "Contact Us":"Contact Us",
+    "Chat With Support Team":"Chat With Support Team"
+
+
 }
