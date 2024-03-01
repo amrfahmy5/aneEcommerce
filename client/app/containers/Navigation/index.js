@@ -126,11 +126,11 @@ class Navigation extends React.PureComponent {
   render() {
     const langOptions = [
       {
-        value: "en",
-        label:' English',
-        image: '/images/flag-usa.jpg'
+        value: "en-US",
+        label: " English",
+        image: "/images/flag-usa.jpg",
       },
-      { value: "ar", label: "Ar/عربى" ,image: '/images/flag-eg.svg' },
+      { value: "ar", label: "Ar/عربى", image: "/images/flag-eg.svg" },
     ];
     const {
       history,
@@ -154,7 +154,11 @@ class Navigation extends React.PureComponent {
       t,
       i18n,
     } = this.props;
+    console.log("hiiiiiiiiiiiiii");
+    console.log(i18n.language);
+    console.log("hooooooooooooooooo");
 
+    // console.log(navigator.language);
     const inputProps = {
       placeholder: t("searchProducts"),
       value: searchValue,
@@ -189,17 +193,14 @@ class Navigation extends React.PureComponent {
                   className="select-container langSelect"
                   classNamePrefix="react-select"
                   options={langOptions}
-                  value={langOptions.filter(function (option) {
-                    return option.value === i18n.language;
-                  })}
-                  onChange={(value) => {
-                    i18n.changeLanguage(value.value);
-                  }}
-                  formatOptionLabel={country => (
-                    
+                  value={langOptions[i18n.language.includes("en") ? 0 : 1]}
+                  onChange={(value) => 
+                    i18n.changeLanguage(value.value)
+                  }
+                  formatOptionLabel={(lang) => (
                     <div className="country-option">
-                      <img src={country.image} alt="country-image" />
-                      <span>{country.label}</span>
+                      <img src={lang.image} alt="country-image" />
+                      <span>{lang.label}</span>
                     </div>
                   )}
                 />
