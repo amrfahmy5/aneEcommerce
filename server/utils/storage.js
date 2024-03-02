@@ -20,7 +20,6 @@ exports.s3Upload = async image => {
       ContentType: image.mimetype,
       ACL: 'public-read'
     };
-    console.log("hiiiiiiiiiiiii");
     const s3Upload = await s3bucket.upload(params).promise();
 
     imageUrl = s3Upload.Location;

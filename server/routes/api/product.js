@@ -62,8 +62,14 @@ router.get('/list/search/:name', async (req, res) => {
       { name: { $regex: new RegExp(name), $options: 'is' }, isActive: true },
       { nameAr: { $regex: new RegExp(nameAr), $options: 'is' }, isActive: true }
     ]},
-      { name: 1,nameAr: 1, slug: 1, imageUrl: 1, price: 1, _id: 0 }
-    );
+      { name: 1,nameAr: 1,brand: 1, slug: 1, imageUrl: 1, price: 1, _id: 0 }
+    ).populate({
+      path: 'brand',
+      populate: {
+        path: 'merchant',
+        model: 'Merchant'
+      }
+    });
 
     if (productDoc.length < 0) {
       return res.status(404).json({

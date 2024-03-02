@@ -192,7 +192,7 @@ export const updateBrand = () => {
         'alpha_dash.slug':
           'Slug may have alpha-numeric characters, as well as dashes and underscores only.',
         'required.description': 'Description is required.',
-        'required.descriptionAr': 'Description is required.',
+        'required.descriptionAr': 'Arabic Description is required.',
         'max.description': 'Description may not be greater than 200 characters.'
       });
 

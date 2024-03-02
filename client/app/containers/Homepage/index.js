@@ -71,7 +71,7 @@ class Homepage extends React.PureComponent {
         {/* more product */}
         <Row xs="12" className='infoBlue align-items-center mx-0 mt-7 mt-lg-4 py-3 py-lg-3 text-center'>
           <Col>
-            <a href='/shop'><span class="infoBlue">{t("moreProduct")}</span></a>
+            <a href='/shop'><span className="infoBlue">{t("moreProduct")}</span></a>
           </Col>
         </Row>
 
@@ -79,7 +79,7 @@ class Homepage extends React.PureComponent {
         <Row className='flex-row my-2'>
           <Col xs='6' lg='6' className='order-lg-1 mb-3 px-3 px-md-2'>
           <div className='d-flex flex-column h-100 justify-content-between brands text-center'>
-                <div class="shadow p-2 mb-1 rounded info">
+                <div className="shadow p-2 mb-1 rounded info">
                   {t("ourBrand")}
                 </div>
                 <CarouselSlider
@@ -104,7 +104,7 @@ class Homepage extends React.PureComponent {
              
               {/* customers */}
               <div className='text-center'>
-                <div class="shadow p-2 mb-1 rounded info">
+                <div className="shadow p-2 mb-1 rounded info">
                   {t("ourCustomer")}
                 </div>
                 <CarouselSlider

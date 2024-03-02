@@ -69,7 +69,7 @@ class ProductPage extends React.PureComponent {
                   <iframe
                     className="driveImage"
                     src={`https://drive.google.com/embeddedfolderview?id=${product.sku}#grid`}
-                    allowfullscreen
+                    // allowfullscreen
                   ></iframe>
                   {/* <img
                     className='item-image'
@@ -99,7 +99,7 @@ class ProductPage extends React.PureComponent {
                         <p className="by">
                           {t("seeMoreFrom")}{" "}
                           <Link
-                            to={`/shop/brand/${product.brand.slug}`}
+                            to={`/shop/brand/${product.brand.name}`}
                             className="default-link"
                           >
                             {product.brand.name}
@@ -160,7 +160,7 @@ class ProductPage extends React.PureComponent {
                         />
                       )}
                     </div>
-                    <div class="alert alert-primary" role="alert">
+                    <div className="alert alert-primary" role="alert">
                       {t("orderGuide")}
                     </div>
                   </div>

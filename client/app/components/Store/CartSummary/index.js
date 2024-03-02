@@ -30,7 +30,7 @@ const CartSummary = (props) => {
             <p className='summary-value'>{cartTotal} L.E</p>
           </Col>
         </Row> */}
-        <div class="alert alert-primary" role="alert">
+        <div className="alert alert-primary" role="alert">
           {i18n.t("cartGuide")}
         </div>
       </Container>
