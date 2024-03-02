@@ -48,7 +48,7 @@ class NavigationMenu extends React.PureComponent {
                       activeClassName='active-link'
                       exact
                     >
-                      {i18n.language=="en"?link.name:link.nameAr}
+                      {i18n.language.includes("en")?link.name:link.nameAr}
                     </NavLink>
                   </li>
                 ))}

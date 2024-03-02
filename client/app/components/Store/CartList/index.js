@@ -42,7 +42,7 @@ const CartList = props => {
                       onClick={handleProductClick}
                     >
                       <h2 className='item-name one-line-ellipsis'>
-                        {i18n.language=="en"?item.name:item.nameAr}
+                        {i18n.language.includes("en")?item.name:item.nameAr}
                       </h2>
                     </Link>
                   </div>

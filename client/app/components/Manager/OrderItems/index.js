@@ -52,7 +52,7 @@ const OrderItems = props => {
         return (
           <DropdownConfirm label={i18n.t('cancel')}>
             <div className='d-flex flex-column align-items-center justify-content-center p-2'>
-              <p className='text-center mb-2'>{`${i18n.t("confirmDelete")}${i18n.language=="en"?item.product?.name:item.product?.nameAr} ?`}</p>
+              <p className='text-center mb-2'>{`${i18n.t("confirmDelete")}${i18n.language.includes("en")?item.product?.name:item.product?.nameAr} ?`}</p>
               <Button
                 variant='danger'
                 id='CancelOrderItemPopover'
@@ -104,7 +104,7 @@ const OrderItems = props => {
                             className='item-link'
                           >
                             <h4 className='d-block item-name one-line-ellipsis'>
-                              {i18n.language=="en"? item.product?.name: item.product?.nameAr}
+                              {i18n.language.includes("en")? item.product?.name: item.product?.nameAr}
                             </h4>
                           </Link>
                           {/* <div className='d-flex align-items-center justify-content-between'>

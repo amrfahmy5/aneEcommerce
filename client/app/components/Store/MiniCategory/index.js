@@ -38,7 +38,7 @@ const MiniBrand = props => {
               role='menuitem'
               onClick={handleMenuItemClick}
             >
-              {i18n.language=="en"?category.name:category.nameAr}
+              {i18n.language.includes("en")?category.name:category.nameAr}
             </Link>
           </div>
         ))}

@@ -25,7 +25,7 @@ const BrandList = props => {
               className='d-block brand-box'
             >
               <h5>{brand.name}</h5>
-              <p className='brand-desc'>{i18n.language=="en"? brand.description:brand.descriptionAr}</p>
+              <p className='brand-desc'>{i18n.language.includes("en")? brand.description:brand.descriptionAr}</p>
             </Link>
           </Col>
         ))}

@@ -47,7 +47,7 @@ const WishList = props => {
           >
             {getProductImage(item)}
             <div className='d-flex flex-column justify-content-center px-3 text-truncate'>
-              <h4 className='text-truncate'>{i18n.language=="en"?item.product.name:item.product.nameAr}</h4>
+              <h4 className='text-truncate'>{i18n.language.includes("en")?item.product.name:item.product.nameAr}</h4>
               {/* <p className='mb-2 price'>{item.product.price} L.E</p> */}
               <label className='text-truncate'>{`${i18n.t("wishlistDate")} ${formatDate(
                 item.created

@@ -91,7 +91,7 @@ class ProductPage extends React.PureComponent {
                   <div className="item-box">
                     <div className="item-details">
                       <h1 className="item-name one-line-ellipsis">
-                        {i18n.language=="en"? product.name:product.nameAr}
+                        {i18n.language.includes("en")? product.name:product.nameAr}
                       </h1>
                       <p className="sku">{product.sku}</p>
                       <hr />
@@ -106,7 +106,7 @@ class ProductPage extends React.PureComponent {
                           </Link>
                         </p>
                       )}
-                      <p className="item-desc">{i18n.language=="en"?product.description:product.descriptionAr}</p>
+                      <p className="item-desc">{i18n.language.includes("en")?product.description:product.descriptionAr}</p>
                       {/* <p className='price'>{product.price} L.E</p> */}
                     </div>
                     <div className="item-customize">

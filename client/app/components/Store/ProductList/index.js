@@ -49,13 +49,13 @@ const ProductList = props => {
                   </div>
                   <div className='item-body'>
                     <div className='item-details p-3'>
-                      <h1 className='item-name'>{i18n.language=="en"?product.name:product.nameAr}</h1>
+                      <h1 className='item-name'>{i18n.language.includes("en")?product.name:product.nameAr}</h1>
                       {product.brand && Object.keys(product.brand).length > 0 && (
                         <p className='by'>
                           By <span>{product.brand.name}</span>
                         </p>
                       )}
-                      <p className='item-desc mb-0'>{i18n.language=="en"?product.description:product.descriptionAr}</p>
+                      <p className='item-desc mb-0'>{i18n.language.includes("en")?product.description:product.descriptionAr}</p>
                     </div>
                   </div>
                   <div className='d-flex flex-row justify-content-between align-items-center px-4 mb-2 item-footer'>
