@@ -334,19 +334,13 @@
 
 /* Style for the main chat button */
 #main-button {
-  width: 70px;
-  height: 70px;
-  font-size: 30px;
+  width: 75px;
+  height: 75px;
+  font-size: 32px;
 }
-/* Style for WhatsApp button */
-#whatsapp-button {
-  width: 45px;
-  height: 45px;
-  font-size: 15px;
-}
-/* Style for Call button */
-#call-button {
-  width: 45px;
-  height: 45px;
-  font-size: 15px;
+/* Style for small button */
+.another-button {
+  width: 50px;
+  height: 50px;
+  font-size: 22px;
 }
