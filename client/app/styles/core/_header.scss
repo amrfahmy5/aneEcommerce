@@ -350,9 +350,3 @@
   height: 45px;
   font-size: 15px;
 }
-
-.headset-icon {
-  @include icon($headset, 40px, 40px);
-  background-size: 100%;
-}
-  // @include icon($headset, 50px, 50px);
