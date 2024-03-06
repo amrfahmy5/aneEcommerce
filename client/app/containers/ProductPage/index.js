@@ -19,7 +19,13 @@ import { BagIcon } from "../../components/Common/Icon";
 import ProductReviews from "../../components/Store/ProductReviews";
 import SocialShare from "../../components/Store/SocialShare";
 import { withTranslation } from "react-i18next";
+
+import CarouselSlider from "../../components/Common/CarouselSlider";
+import { responsiveOneItemCarousel } from "../../components/Common/CarouselSlider/utils";
+
 class ProductPage extends React.PureComponent {
+  // state = { loading: false };
+
   componentDidMount() {
     const slug = this.props.match.params.slug;
     this.props.fetchStoreProduct(slug);
@@ -38,6 +44,31 @@ class ProductPage extends React.PureComponent {
     document.body.classList.remove("product-page");
   }
 
+  async getImages() {
+    const apiKey = "AIzaSyBbMQiJJ2lbH8wnqoT0cnCPhdROqes6nyE";
+    const folderId = "1BZ-bxxyaS4Q7jHAXUnN3nefq9lY9g6iC";
+    const apiUrl = `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${apiKey}`;
+
+    try {
+      this.setState({ loading: true });
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      console.log(data);
+      const files = data.files.filter((file) =>
+        file.mimeType.startsWith("image/")
+      );
+      this.setState({
+        productImages: files.map((image) => {
+          return `https://drive.google.com/thumbnail?id=${image.id}`;
+        }),
+      });
+    } catch (error) {
+      console.error("Error fetching images:", error);
+    } finally {
+      this.setState({ loading: false });
+    }
+  }
+
   render() {
     const {
       isLoading,
@@ -54,9 +85,12 @@ class ProductPage extends React.PureComponent {
       reviewFormData,
       reviewChange,
       reviewFormErrors,
-      t,i18n
+      t,
+      i18n,
     } = this.props;
 
+    // this.getImages();
+    
     return (
       <div className="product-shop">
         {isLoading ? (
@@ -71,14 +105,20 @@ class ProductPage extends React.PureComponent {
                     src={`https://drive.google.com/embeddedfolderview?id=${product.sku}#grid`}
                     // allowfullscreen
                   ></iframe>
-                  {/* <img
-                    className='item-image'
-                    src={`${
-                      product.imageUrl
-                        ? product.imageUrl
-                        : '/images/placeholder-image.png'
-                    }`}
-                  /> */}
+
+                  {/* <CarouselSlider
+                    swipeable={true}
+                    showDots={false}
+                    infinite={true}
+                    autoPlay={true}
+                    slides={this.state.productImages}
+                    responsive={responsiveOneItemCarousel}
+                  >
+                    {this.state.productImages.map((item, index) => (
+                      <img key={index} src={item} />
+                    ))}
+                  </CarouselSlider> */}
+
                   {product.inventory <= 0 && !shopFormErrors["quantity"] ? (
                     <p className="stock out-of-stock">{t("outOfStock")}</p>
                   ) : (
@@ -91,7 +131,9 @@ class ProductPage extends React.PureComponent {
                   <div className="item-box">
                     <div className="item-details">
                       <h1 className="item-name one-line-ellipsis">
-                        {i18n.language.includes("en")? product.name:product.nameAr}
+                        {i18n.language.includes("en")
+                          ? product.name
+                          : product.nameAr}
                       </h1>
                       <p className="sku">{product.sku}</p>
                       <hr />
@@ -106,7 +148,11 @@ class ProductPage extends React.PureComponent {
                           </Link>
                         </p>
                       )}
-                      <p className="item-desc">{i18n.language.includes("en")?product.description:product.descriptionAr}</p>
+                      <p className="item-desc">
+                        {i18n.language.includes("en")
+                          ? product.description
+                          : product.descriptionAr}
+                      </p>
                       {/* <p className='price'>{product.price} L.E</p> */}
                     </div>
                     <div className="item-customize">
@@ -205,4 +251,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default withTranslation()(connect(mapStateToProps, actions)(ProductPage));
+export default withTranslation()(
+  connect(mapStateToProps, actions)(ProductPage)
+);

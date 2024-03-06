@@ -1,9 +1,13 @@
 // Arabic
-@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+// @import url(https://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap');
+
 
 .ArabicStyle {
 
-  font-family: 'Droid Arabic Kufi', serif !important;
+  // font-family: 'Droid Arabic Kufi', serif !important;
+  font-family: "El Messiri", sans-serif !important;
+  font-optical-sizing: auto;
   direction: rtl !important;
   text-align: -webkit-auto !important;
 

@@ -104,7 +104,7 @@ const Footer = (props) => {
           </li>
           <li>
             <a href='https://goo.gl/maps/huZvDGxf3KhQ1eiHA' rel='noreferrer noopener' target='_blank'>
-              <span className='google-icon' />
+              <span className='maps-icon' />
             </a>
           </li>
         </ul>

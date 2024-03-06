@@ -1,33 +1,13 @@
-// whatsapp chat
-.whats-app {
-  position: fixed;
-  width: 70px;
-  height: 70px;
-  bottom: 40px;
-  background-color: #25d366;
-  color: #FFF;
-  border-radius: 50px;
-  text-align: center;
-  font-size: 30px;
-  box-shadow: 3px 4px 3px #999;
-  right: 15px;
-  z-index: 100;
-}
-
-.my-float {
-  margin-top: 15px;
-  font-size: 1.33333333em !important;
-}
-
 // header styles
 .header-info {
   padding: 10px 0px;
   background-color: $logored;
+  display: flex;
 
   .fa,
   span {
     color: $white;
-    font-size: $font-size-medium !important;
+    font-size: $font-size-large ;
     font-weight: $font-weight-normal;
     margin: 0px 5px;
   }
@@ -42,7 +22,8 @@
     font-weight: $font-weight-normal;
   }
 
-  .logo,.NavTitle{
+  .logo,
+  .NavTitle {
     color: $white !important;
   }
 }
@@ -84,7 +65,9 @@
       opacity: 0.5;
     }
   }
-
+  span{
+    font-size: $font-size-x-large;
+  }
   .fa {
     cursor: pointer;
     color: $secondary-color;
@@ -99,8 +82,8 @@
   }
 
   .navbar {
-    
-  background-color: $logoblue !important;
+
+    background-color: $logoblue !important;
     // background-color: $white !important;
     justify-content: flex-end;
     padding: 0;
@@ -120,6 +103,7 @@
 
   .navbar-nav {
     flex-direction: row;
+
     @include media-breakpoint-up(md) {
       margin-left: 20px;
     }
@@ -147,16 +131,18 @@
     .dropdown-menu {
       &.nav-brand-dropdown {
         padding: 0;
+
         @include media-breakpoint-down(sm) {
           left: -30px;
           min-width: 270px;
         }
-        
+
       }
     }
 
     .nav-item {
       position: relative;
+
       @include media-breakpoint-down(sm) {
         margin-right: 15px;
       }
@@ -167,6 +153,7 @@
     @include flex();
     flex-wrap: wrap;
     align-items: center;
+
     @include media-breakpoint-down(sm) {
       margin-top: 10px;
       justify-content: center;
@@ -174,6 +161,7 @@
 
     .logo {
       margin: 0px;
+
       // color: $white !important;
       @include media-breakpoint-up(md) {
         margin-left: 15px;
@@ -208,6 +196,7 @@
 // mini brand
 .mini-brand {
   min-width: 270px;
+
   @include media-breakpoint-up(md) {
     min-width: 500px;
   }
@@ -220,16 +209,21 @@
 }
 
 .mini-brand-list {
-  h4{
+
+  h4 {
     color: black !important;
 
   }
+
   padding: 16px 20px;
+
   @include media-breakpoint-up(md) {
     padding: 20px 40px;
   }
 
   .mini-brand-block {
+    height: 480px;
+    overflow-y: overlay;
     @include flex();
     flex-wrap: wrap;
     margin-top: 12px;
@@ -264,8 +258,8 @@
           width: 100%;
           height: 2px;
           // background-color: $primary-bg;
-          
-  background-color: #f0f0ed !important;
+
+          background-color: #f0f0ed !important;
           content: '';
           opacity: 0;
           -webkit-transition: opacity $layout-transition-speed,
@@ -284,17 +278,81 @@
 }
 
 
-
+.fa-solid{
+  color: white;
+}
 
 .langSelect {
-  // width: auto;
   width: 9rem !important;
   height: 2rem;
-  img{
+
+  img {
     width: 1rem !important;
     height: 1rem !important;
   }
-  span{
+
+  span {
     color: #000000;
   }
 }
+
+.slogn {
+  font-size: 25px !important;
+  color: #ffe06c !important;
+  font-family: cursive;
+}
+
+.slognMobile {
+  font-size: 22px !important;
+  color: #ffe06c !important;
+  font-family: cursive;
+}
+
+
+
+
+/* Style for the chat widget */
+#chat-widget {
+  cursor: pointer;
+  position: fixed;
+  right: 10px;
+  bottom: 40px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for the chat buttons */
+.chat-button {
+  margin: 5px;
+  padding: 8px 15px;
+  border-radius: 50px;
+  box-shadow: 3px 4px 3px 3px #999;
+  background-color: #2d67b2;
+  color: white !important;
+}
+
+/* Style for the main chat button */
+#main-button {
+  width: 70px;
+  height: 70px;
+  font-size: 30px;
+}
+/* Style for WhatsApp button */
+#whatsapp-button {
+  width: 45px;
+  height: 45px;
+  font-size: 15px;
+}
+/* Style for Call button */
+#call-button {
+  width: 45px;
+  height: 45px;
+  font-size: 15px;
+}
+
+.headset-icon {
+  @include icon($headset, 40px, 40px);
+  background-size: 100%;
+}
+  // @include icon($headset, 50px, 50px);

@@ -71,7 +71,7 @@ class Login extends React.PureComponent {
                 <Input
                   type={'password'}
                   error={formErrors['password']}
-                  label={t('Password')}
+                  label={t('password')}
                   name={'password'}
                   placeholder={t("phPassword")}
                   value={loginFormData.password}

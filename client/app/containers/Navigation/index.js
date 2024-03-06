@@ -35,6 +35,9 @@ import CartIcon from "../../components/Common/CartIcon";
 import { BarsIcon } from "../../components/Common/Icon";
 import MiniBrand from "../../components/Store//MiniBrand";
 import MiniCategory from "../../components/Store//MiniCategory";
+
+import ChatWidget from "../../components/Store/conntact";
+
 import Menu from "../NavigationMenu";
 import Cart from "../Cart";
 
@@ -69,7 +72,6 @@ class Navigation extends React.PureComponent {
   }
 
   renderSuggestion(suggestion, { query, isHighlighted }) {
-
     const BoldName = (suggestion, query) => {
       const matches = AutosuggestHighlightMatch(suggestion.nameAr, query);
       const parts = AutosuggestHighlightParse(suggestion.nameAr, matches);
@@ -165,16 +167,17 @@ class Navigation extends React.PureComponent {
         <div className="header-info">
           <Container>
             <Row>
-              <Col md="3" className="text-center d-none d-md-block">
-                <i className="fa fa-truck" />
-                <span>{t("slogan1")}</span>
+              <Col md="6" className="text-center d-none d-md-block">
+                <span className="slogn">As Good As Gold</span>
               </Col>
-              <Col md="3" className="text-center d-none d-md-block">
-                <i className="fa fa-credit-card" />
-                <span>{t("slogan2")}</span>
+              <Col xs="7" className="text-center d-block d-md-none">
+                <span className="slognMobile">As Good As Gold</span>
               </Col>
-              <Col md="3" xs="7" className="text-center">
-                <i className="fa fa-phone" />
+              <Col
+                md="3"
+                className="text-center d-none d-md-block align-items-center mt-1"
+              >
+                <i className="fa-solid fa-phone-volume"></i>
                 <a href="tel:01118122288">
                   <span> {t("call")}</span>
                 </a>
@@ -187,9 +190,7 @@ class Navigation extends React.PureComponent {
                   classNamePrefix="react-select"
                   options={langOptions}
                   value={langOptions[i18n.language.includes("en") ? 0 : 1]}
-                  onChange={(value) => 
-                    i18n.changeLanguage(value.value)
-                  }
+                  onChange={(value) => i18n.changeLanguage(value.value)}
                   formatOptionLabel={(lang) => (
                     <div className="country-option">
                       <img src={lang.image} alt="country-image" />
@@ -289,7 +290,7 @@ class Navigation extends React.PureComponent {
 
                         <span className="fa fa-chevron-down dropdown-caret"></span>
                       </DropdownToggle>
-                      <DropdownMenu right className="nav-brand-dropdown">
+                      <DropdownMenu left className="nav-brand-dropdown">
                         <div className="mini-brand">
                           <MiniBrand
                             brands={brands}
@@ -313,7 +314,7 @@ class Navigation extends React.PureComponent {
 
                         <span className="fa fa-chevron-down dropdown-caret"></span>
                       </DropdownToggle>
-                      <DropdownMenu right className="nav-brand-dropdown">
+                      <DropdownMenu left className="nav-brand-dropdown">
                         <div className="mini-brand">
                           <MiniCategory
                             categories={categories}
@@ -421,13 +422,14 @@ class Navigation extends React.PureComponent {
           />
         </div>
 
-        <a
+        <ChatWidget></ChatWidget>
+        {/* <a
           className="whats-app"
           href="https://wa.me/+201121833830"
           target="_blank"
         >
           <i className="fa fa-whatsapp my-float"></i>
-        </a>
+        </a> */}
       </header>
     );
   }
