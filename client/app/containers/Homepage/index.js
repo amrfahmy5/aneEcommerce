@@ -44,6 +44,7 @@ class Homepage extends React.PureComponent {
                 autoPlay={true}
                 slides={banners}
                 responsive={responsiveOneItemCarousel}
+                autoPlaySpeed={5000}
               >
                 {banners.map((item, index) => (
                   <img key={index} src={item.imageUrl} />

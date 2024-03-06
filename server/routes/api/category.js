@@ -13,7 +13,6 @@ router.post('/add', auth, role.check(ROLES.Admin), (req, res) => {
   const name = req.body.name;
   const nameAr = req.body.nameAr;
 
-  console.log(req.body);
   const description = req.body.description;
   const descriptionAr = req.body.descriptionAr;
 

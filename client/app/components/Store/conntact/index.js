@@ -34,7 +34,7 @@ const ChatWidget = () => {
           <button className="chat-button another-button" onClick={handleWhatsAppButtonClick}>
           <i className="fa-brands fa-whatsapp"></i>
           </button>
-          <button className="chat-button another-button" onClick={handleCallButtonClick}>
+          <button className="chat-button another-button d-block d-md-none" onClick={handleCallButtonClick}>
             <i className="fa-solid fa-phone-volume"></i>
           </button>
         </>

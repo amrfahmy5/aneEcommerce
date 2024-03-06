@@ -57,7 +57,6 @@ class Navigation extends React.PureComponent {
   }
 
   toggleCategory() {
-    console.log("hiiiiiii");
     this.props.fetchStoreCategories();
     this.props.toggleCategory();
   }
@@ -290,7 +289,7 @@ class Navigation extends React.PureComponent {
 
                         <span className="fa fa-chevron-down dropdown-caret"></span>
                       </DropdownToggle>
-                      <DropdownMenu left className="nav-brand-dropdown">
+                      <DropdownMenu right={false} className="nav-brand-dropdown">
                         <div className="mini-brand">
                           <MiniBrand
                             brands={brands}
@@ -314,7 +313,7 @@ class Navigation extends React.PureComponent {
 
                         <span className="fa fa-chevron-down dropdown-caret"></span>
                       </DropdownToggle>
-                      <DropdownMenu left className="nav-brand-dropdown">
+                      <DropdownMenu right={false} className="nav-brand-dropdown">
                         <div className="mini-brand">
                           <MiniCategory
                             categories={categories}

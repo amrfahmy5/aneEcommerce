@@ -308,7 +308,6 @@ router.post(
       }
 
       const { imageUrl, imageKey } = await s3Upload(image);
-      console.log(imageUrl);
       const product = new Product({
         sku,
         name,

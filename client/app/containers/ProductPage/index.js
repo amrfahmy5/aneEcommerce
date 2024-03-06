@@ -53,7 +53,6 @@ class ProductPage extends React.PureComponent {
       this.setState({ loading: true });
       const response = await fetch(apiUrl);
       const data = await response.json();
-      console.log(data);
       const files = data.files.filter((file) =>
         file.mimeType.startsWith("image/")
       );

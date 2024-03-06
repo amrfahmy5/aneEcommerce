@@ -23,7 +23,6 @@ const mailgun = new MailgunService().init();
 exports.sendEmail = async (email, type, host, data) => {
   try {
     const message = prepareTemplate(type, host, data);
-    console.log(message);
     const config = {
       from: `ANE! <${sender}>`,
       to: email,
@@ -33,7 +32,6 @@ exports.sendEmail = async (email, type, host, data) => {
 
     return await mailgun.messages().send(config);
   } catch (error) {
-    console.log("---------------------");
     console.log(error);
     return error;
   }
