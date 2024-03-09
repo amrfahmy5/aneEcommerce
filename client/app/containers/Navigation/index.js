@@ -166,14 +166,14 @@ class Navigation extends React.PureComponent {
         <div className="header-info">
           <Container>
             <Row>
-              <Col md="6" className="text-center d-none d-md-block">
+              <Col md="4" className="text-center d-none d-md-block">
                 <span className="slogn">As Good As Gold</span>
               </Col>
               <Col xs="7" className="text-center d-block d-md-none">
                 <span className="slognMobile">As Good As Gold</span>
               </Col>
               <Col
-                md="3"
+                md="4"
                 className="text-center d-none d-md-block align-items-center mt-1"
               >
                 <i className="fa-solid fa-phone-volume"></i>
@@ -182,7 +182,7 @@ class Navigation extends React.PureComponent {
                 </a>
               </Col>
 
-              <Col md="3" xs="5" className="text-center">
+              <Col md="4" xs="5" className="text-center">
                 <Select
                   // isDisabled={disabled}
                   className="select-container langSelect"
@@ -214,7 +214,7 @@ class Navigation extends React.PureComponent {
               <div className="brand">
                 <Link to="/">
                   {/* <h1 className="logo">{t("logo")}</h1> */}
-                  <img height="40rem" src="/images/headerLogoBlack.png" />
+                  <img height="40rem" src="/images/headerLogoWhite.png" />
                 </Link>
               </div>
             </Col>
