@@ -22,13 +22,13 @@ import { withTranslation } from "react-i18next";
 
 import CarouselSlider from "../../components/Common/CarouselSlider";
 import { responsiveOneItemCarousel } from "../../components/Common/CarouselSlider/utils";
+import { ROLES } from "../../constants";
 
 class ProductPage extends React.PureComponent {
-  // state = { loading: false };
-
   componentDidMount() {
     const slug = this.props.match.params.slug;
-    this.props.fetchStoreProduct(slug);
+    // this.props.fetchStoreProduct(slug);
+    this.props.fetchStoreProductwithImages(slug);
     this.props.fetchProductReviews(slug);
     document.body.classList.add("product-page");
   }
@@ -42,30 +42,6 @@ class ProductPage extends React.PureComponent {
 
   componentWillUnmount() {
     document.body.classList.remove("product-page");
-  }
-
-  async getImages() {
-    const apiKey = "AIzaSyBbMQiJJ2lbH8wnqoT0cnCPhdROqes6nyE";
-    const folderId = "1BZ-bxxyaS4Q7jHAXUnN3nefq9lY9g6iC";
-    const apiUrl = `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${apiKey}`;
-
-    try {
-      this.setState({ loading: true });
-      const response = await fetch(apiUrl);
-      const data = await response.json();
-      const files = data.files.filter((file) =>
-        file.mimeType.startsWith("image/")
-      );
-      this.setState({
-        productImages: files.map((image) => {
-          return `https://drive.google.com/thumbnail?id=${image.id}`;
-        }),
-      });
-    } catch (error) {
-      console.error("Error fetching images:", error);
-    } finally {
-      this.setState({ loading: false });
-    }
   }
 
   render() {
@@ -86,10 +62,8 @@ class ProductPage extends React.PureComponent {
       reviewFormErrors,
       t,
       i18n,
+      user,
     } = this.props;
-
-    // this.getImages();
-    
     return (
       <div className="product-shop">
         {isLoading ? (
@@ -99,24 +73,26 @@ class ProductPage extends React.PureComponent {
             <Row className="flex-row">
               <Col xs="12" md="5" lg="5" className="mb-3 px-3 px-md-2">
                 <div className="position-relative">
-                  <iframe
-                    className="driveImage"
-                    src={`https://drive.google.com/embeddedfolderview?id=${product.sku}#grid`}
-                    // allowfullscreen
-                  ></iframe>
-
-                  {/* <CarouselSlider
-                    swipeable={true}
-                    showDots={false}
-                    infinite={true}
-                    autoPlay={true}
-                    slides={this.state.productImages}
-                    responsive={responsiveOneItemCarousel}
-                  >
-                    {this.state.productImages.map((item, index) => (
-                      <img key={index} src={item} />
-                    ))}
-                  </CarouselSlider> */}
+                  {product?.images == 0 ? (
+                    <iframe
+                      className="drive-image"
+                      src={`https://drive.google.com/embeddedfolderview?id=${product.sku}#grid`}
+                    ></iframe>
+                  ) : (
+                    <CarouselSlider
+                      swipeable={true}
+                      showDots={true}
+                      infinite={true}
+                      autoPlay={true}
+                      slides={product.image}
+                      responsive={responsiveOneItemCarousel}
+                      autoPlaySpeed={5000}
+                    >
+                      {product.images.map((item, index) => (
+                        <img className="drive-image" key={index} src={item} />
+                      ))}
+                    </CarouselSlider>
+                  )}
 
                   {product.inventory <= 0 && !shopFormErrors["quantity"] ? (
                     <p className="stock out-of-stock">{t("outOfStock")}</p>
@@ -134,7 +110,20 @@ class ProductPage extends React.PureComponent {
                           ? product.name
                           : product.nameAr}
                       </h1>
-                      <p className="sku">{product.sku}</p>
+                      {user?.role === ROLES.Admin ? (
+                        <p className="sku">
+                          <a
+                            href={`https://drive.google.com/drive/folders/${product.sku}`}
+                            className=""
+                            target="_blank"
+                          >
+                            {product.sku}
+                          </a>
+                        </p>
+                      ) : (
+                        ""
+                      )}
+
                       <hr />
                       {product.brand && (
                         <p className="by">
@@ -247,6 +236,7 @@ const mapStateToProps = (state) => {
     reviewFormData: state.review.reviewFormData,
     reviewFormErrors: state.review.reviewFormErrors,
     itemInCart,
+    user: state.account.user,
   };
 };
 
