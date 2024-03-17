@@ -7,14 +7,19 @@
 import React from 'react';
 
 import SearchBar from '../../Common/SearchBar';
+import { withTranslation } from "react-i18next";
 
 const OrderSearch = props => {
+  const {
+    t,
+    i18n
+  } = props;
   return (
     <div className='mb-3'>
       <SearchBar
         name='order'
-        placeholder={props.i18n.t("searchOrder")}
-        btnText={props.i18n.t("search")}
+        placeholder={t("searchOrder")}
+        btnText={t("search")}
         onSearch={props.onSearch}
         onBlur={props.onBlur}
         onSearchSubmit={props.onSearchSubmit}
@@ -23,4 +28,4 @@ const OrderSearch = props => {
   );
 };
 
-export default OrderSearch;
+export default withTranslation()(OrderSearch);

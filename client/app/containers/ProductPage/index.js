@@ -73,16 +73,16 @@ class ProductPage extends React.PureComponent {
             <Row className="flex-row">
               <Col xs="12" md="5" lg="5" className="mb-3 px-3 px-md-2">
                 <div className="position-relative">
-                  {product?.images == 0 ? (
+                  {/* {product?.images == 0 ? ( */}
                     <iframe
                       className="drive-image"
                       src={`https://drive.google.com/embeddedfolderview?id=${product.sku}#grid`}
                     ></iframe>
-                  ) : (
+                  {/* ) : (
                     <CarouselSlider
                       swipeable={true}
                       showDots={true}
-                      infinite={true}
+                      infinite={false}
                       autoPlay={true}
                       slides={product.image}
                       responsive={responsiveOneItemCarousel}
@@ -92,7 +92,7 @@ class ProductPage extends React.PureComponent {
                         <img className="drive-image" key={index} src={item} />
                       ))}
                     </CarouselSlider>
-                  )}
+                  )} */}
 
                   {product.inventory <= 0 && !shopFormErrors["quantity"] ? (
                     <p className="stock out-of-stock">{t("outOfStock")}</p>

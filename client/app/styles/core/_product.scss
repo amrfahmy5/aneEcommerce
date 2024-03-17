@@ -31,6 +31,12 @@
 
 /* start product list styles */
 .product-list {
+  @include media-breakpoint-up(xs) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5px;
+  }
+
   @include media-breakpoint-up(md) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -60,6 +66,15 @@
         top: 10px;
         right: 10px;
         z-index: 1;
+      }
+
+      .product-status {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 1;
+        rotate: -45deg;
+        background-image: url("https://previews.123rf.com/images/argus456/argus4561210/argus456121000044/15612752-admit-ticket-on-a-solid-white-background.jpg");
       }
 
       .item-link {
@@ -110,11 +125,11 @@
 
           .item-name {
             margin-bottom: 8px;
-            @include text-ellipsis(1);
+            @include text-ellipsis(2);
           }
 
           .item-desc {
-            @include text-ellipsis(2);
+            @include text-ellipsis(4);
           }
 
           .by {

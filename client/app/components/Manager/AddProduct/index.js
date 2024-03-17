@@ -129,7 +129,7 @@ const AddProduct = props => {
           <Col xs='12' md='12'>
             <SelectOption
               error={formErrors['taxable']}
-              label={'Taxable'}
+              label={'Is it New?'}
               name={'taxable'}
               options={taxableSelect}
               value={productFormData.taxable}
