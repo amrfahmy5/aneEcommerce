@@ -31,9 +31,11 @@ const ProductList = (props) => {
                 />
               </div>
 
-              {/* <div className="product-status">
-                new
-              </div> */}
+              <div className="product-status">
+              {product.taxable?<span class="badge badge-danger">NEW</span>:<span class="badge badge-primary">Used</span>}
+                
+              
+              </div>
 
 
               <div className="item-link">
