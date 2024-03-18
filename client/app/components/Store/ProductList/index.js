@@ -32,7 +32,7 @@ const ProductList = (props) => {
               </div>
 
               <div className="product-status">
-              {product.taxable?<span class="badge badge-danger">NEW</span>:<span class="badge badge-primary">Used</span>}
+              {product.taxable?<span class="badge badge-danger">{t("new")}</span>:<span class="badge badge-primary">{t("used")}</span>}
                 
               
               </div>
