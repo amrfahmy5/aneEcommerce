@@ -74,25 +74,26 @@ class ProductPage extends React.PureComponent {
               <Col xs="12" md="5" lg="5" className="mb-3 px-3 px-md-2">
                 <div className="position-relative">
                   {/* {product?.images == 0 ? ( */}
-                    <iframe
+                  {/* <iframe
                       className="drive-image"
                       src={`https://drive.google.com/embeddedfolderview?id=${product.sku}#grid`}
-                    ></iframe>
-                  {/* ) : (
-                    <CarouselSlider
-                      swipeable={true}
-                      showDots={true}
-                      infinite={false}
-                      autoPlay={true}
-                      slides={product.image}
-                      responsive={responsiveOneItemCarousel}
-                      autoPlaySpeed={5000}
-                    >
-                      {product.images.map((item, index) => (
-                        <img className="drive-image" key={index} src={item} />
-                      ))}
-                    </CarouselSlider>
-                  )} */}
+                    ></iframe> */}
+                  {/* ) : ( */}
+                  <CarouselSlider
+                    swipeable={true}
+                    showDots={true}
+                    infinite={true}
+                    autoPlay={true}
+                    slides={product.image}
+                    responsive={responsiveOneItemCarousel}
+                    autoPlaySpeed={5000}
+                  >
+                    {product.images.map((item, index) => (
+                      // <img src={`https://drive.google.com/uc?id=${item}`} key={index} className="drive-image" />
+                      <iframe src={`https://drive.google.com/file/d/${item}/preview`} key={index} className="drive-image" allow="autoplay"></iframe>
+                    ))}
+                  </CarouselSlider>
+                  {/* )} */}
 
                   {product.inventory <= 0 && !shopFormErrors["quantity"] ? (
                     <p className="stock out-of-stock">{t("outOfStock")}</p>

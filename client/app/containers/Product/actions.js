@@ -159,12 +159,7 @@ export const fetchStoreProductwithImages = (slug) => {
         file.mimeType.startsWith("image/")
       );
 
-      product.images = files.map((image) => {
-        return `https://lh3.google.com/u/0/d/${image.id}`;
-        // return `https://drive.google.com/thumbnail?id=${image.id}&sz=w1000`;
-        // return `https://drive.google.com/uc?id=${image.id}`;
-
-      });
+      product.images = files.map((image) =>image.id);
 
       dispatch({
         type: FETCH_STORE_PRODUCT,
