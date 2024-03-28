@@ -266,7 +266,7 @@ router.delete('/cancel/:orderId', auth, async (req, res) => {
     const order = await Order.findOne({ _id: orderId });
     const foundCart = await Cart.findOne({ _id: order.cart });
 
-    increaseQuantity(foundCart.products);
+    // increaseQuantity(foundCart.products);
 
     await Order.deleteOne({ _id: orderId });
     await Cart.deleteOne({ _id: order.cart });
@@ -299,10 +299,10 @@ router.put('/status/item/:itemId', auth, async (req, res) => {
     );
 
     if (status === CART_ITEM_STATUS.Cancelled) {
-      await Product.updateOne(
-        { _id: foundCartProduct.product },
-        { $inc: { quantity: foundCartProduct.quantity } }
-      );
+      // await Product.updateOne(
+      //   { _id: foundCartProduct.product },
+      //   { $inc: { quantity: foundCartProduct.quantity } }
+      // );
 
       const cart = await Cart.findOne({ _id: cartId });
       const items = cart.products.filter(

@@ -21,7 +21,7 @@ router.post('/add', auth, async (req, res) => {
 
     const cartDoc = await cart.save();
 
-    decreaseQuantity(products);
+    // decreaseQuantity(products);
 
     res.status(200).json({
       success: true,

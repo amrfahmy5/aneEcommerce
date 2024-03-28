@@ -8,8 +8,8 @@ const ChatWidget = () => {
   };
 
   const handleWhatsAppButtonClick = () => {
-    const whatsappNumber = "+201121833830";
-    // window.location.href = `https://wa.me/${whatsappNumber}`;
+    const whatsappNumber = "+201551640693";
+    // window.location.href = `https://wa.me/${whatsappNumber}`;+201551640693
     window.open(
       `https://wa.me/${whatsappNumber}`,
       '_blank' // <- This is what makes it open in a new window.
@@ -17,7 +17,7 @@ const ChatWidget = () => {
   };
 
   const handleCallButtonClick = () => {
-    const callNumber = "+201121833830";
+    const callNumber = "+201551640693";
     window.location.href = `tel:${callNumber}`;
   };
   const handleChatButtonClick = () => {

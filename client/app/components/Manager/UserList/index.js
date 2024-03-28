@@ -22,6 +22,8 @@ const UserList = props => {
           </p>
           <label className='text-black'>Email</label>
           <p>{user?.email ?? '-'}</p>
+          <label className='text-black'>Phone Number</label>
+          <p>{user?.phoneNumber ?? '-'}</p>
           <label className='text-black'>Provider</label>
           <p>{user?.provider}</p>
           <label className='text-black'>Account Created</label>
