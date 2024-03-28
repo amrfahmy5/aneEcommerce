@@ -17,6 +17,7 @@ import SearchResultMeta from '../../components/Manager/SearchResultMeta';
 import NotFound from '../../components/Common/NotFound';
 import LoadingIndicator from '../../components/Common/LoadingIndicator';
 import Pagination from '../../components/Common/Pagination';
+import { withTranslation } from "react-i18next";
 
 class Customer extends React.PureComponent {
   constructor(props) {
@@ -56,7 +57,8 @@ class Customer extends React.PureComponent {
       isLoading,
       searchedOrders,
       advancedFilters,
-      searchOrders
+      searchOrders,
+      t,i18n
     } = this.props;
     const { search } = this.state;
     const isSearch = search.length > 0;
@@ -91,7 +93,8 @@ class Customer extends React.PureComponent {
                 label='orders'
                 count={isSearch ? filteredOrders.length : advancedFilters.count}
               />
-              <OrderList orders={filteredOrders} />
+            
+              <OrderList orders={filteredOrders} i18n={i18n} />
             </>
           )}
           {!isLoading && !displayOrders && (
@@ -114,4 +117,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, actions)(Customer);
+export default withTranslation()(connect(mapStateToProps, actions)(Customer));
