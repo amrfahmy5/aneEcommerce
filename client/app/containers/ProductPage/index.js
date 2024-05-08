@@ -90,7 +90,9 @@ class ProductPage extends React.PureComponent {
                   >
                     {product.images.map((item, index) => (
                       // <img src={`https://drive.google.com/uc?id=${item}`} key={index} className="drive-image" />
-                      <iframe src={`https://drive.google.com/file/d/${item}/preview`} key={index} className="drive-image" allow="autoplay"></iframe>
+                      // <img src={`https://drive.google.com/thumbnail?id=${item}&sz=w1000`} key={index} className="drive-image" />
+                      <img crossorigin="anonymous"src={`https://drive.lienuc.com/uc?id=${item}`}alt="Contact Admin If Not Visible"className="drive-image" />
+                      // <iframe src={`https://drive.google.com/file/d/${item}/preview`} key={index} className="drive-image" allow="autoplay"></iframe>
                     ))}
                   </CarouselSlider>
                   {/* )} */}
