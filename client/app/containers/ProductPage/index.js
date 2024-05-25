@@ -64,6 +64,7 @@ class ProductPage extends React.PureComponent {
       i18n,
       user,
     } = this.props;
+    const authenticated = user.firstName?true:false
     return (
       <div className="product-shop">
         {isLoading ? (
@@ -144,7 +145,7 @@ class ProductPage extends React.PureComponent {
                           ? product.description
                           : product.descriptionAr}
                       </p>
-                      {/* <p className='price'>{product.price} L.E</p> */}
+                      <p className='price'>{authenticated?product.price +" L.E":""}</p>
                     </div>
                     <div className="item-customize">
                       <Input

@@ -76,7 +76,7 @@ const ProductList = (props) => {
                     </div>
                   </div>
 
-                  {/* <p className='price mb-0'>{product.price} L.E</p> */}
+                  <p className='price mb-0'>{authenticated?product.price +" L.E":""}</p>
                   {/* <p className='price mb-0'>Call Us </p> */}
 
                   {product.totalReviews > 0 && (

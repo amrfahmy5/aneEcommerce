@@ -52,6 +52,7 @@ class Cart extends React.PureComponent {
               cartItems={cartItems}
               handleRemoveFromCart={handleRemoveFromCart}
               i18n={i18n}
+              authenticated={authenticated}
             />
           </div>
         ) : (

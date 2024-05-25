@@ -160,9 +160,9 @@ class Navigation extends React.PureComponent {
         onSearch(newValue);
       },
     };
-
+// fixed-mobile-header
     return (
-      <header className="header fixed-mobile-header">
+      <header className="header">
         <div className="header-info">
           <Container>
             <Row>
