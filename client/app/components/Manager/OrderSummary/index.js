@@ -20,12 +20,12 @@ const OrderSummary = props => {
       </div>
       <div className='d-flex align-items-center summary-item'>
         <p className='summary-label'>Est. Sales Tax</p>
-        <p className='summary-value ml-auto'>{order.totalTax} L.E</p>
+        <p className='summary-value ml-auto'>{0/*order.totalTax*/} L.E</p>
       </div>
       <hr />
       <div className='d-flex align-items-center summary-item'>
         <p className='summary-label'>Total</p>
-        <p className='summary-value ml-auto'>{order.totalWithTax} L.E</p>
+        <p className='summary-value ml-auto'>{/*order.totalWithTax*/order.total} L.E</p>
       </div>
     </Col>
   );

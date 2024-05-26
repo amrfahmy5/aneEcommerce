@@ -107,11 +107,11 @@ const OrderItems = props => {
                               {i18n.language.includes("en")? item.product?.name: item.product?.nameAr}
                             </h4>
                           </Link>
-                          {/* <div className='d-flex align-items-center justify-content-between'>
+                          <div className='d-flex align-items-center justify-content-between'>
                             <span className='price'>
                               {item.purchasePrice || item.product.price}  {i18n.t("le")}
                             </span>
-                          </div> */}
+                          </div>
                         </>
                       ) : (
                         <h4> {i18n.t("notAvail")}</h4>

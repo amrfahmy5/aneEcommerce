@@ -22,7 +22,7 @@ const OrderDetails = props => {
         </Col>
       </Row>
       <Row className='mt-5'>
-        <Col xs='12' lg='12'>
+        <Col xs='12' lg='8'>
           <OrderItems
             order={order}
             user={user}
@@ -30,9 +30,9 @@ const OrderDetails = props => {
             i18n={i18n}
           />
         </Col>
-        {/* <Col xs='12' lg='4' className='mt-5 mt-lg-0'>
+        <Col xs='12' lg='4' className='mt-5 mt-lg-0'>
           <OrderSummary order={order} i18n={i18n}/>
-        </Col> */}
+        </Col>
       </Row>
     </div>
   );

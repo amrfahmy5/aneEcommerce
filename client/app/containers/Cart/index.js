@@ -63,7 +63,7 @@ class Cart extends React.PureComponent {
         )}
         {cartItems.length > 0 && (
           <div className='cart-checkout'>
-            <CartSummary cartTotal={cartTotal} i18n={i18n} />
+            <CartSummary cartTotal={cartTotal} authenticated={authenticated} i18n={i18n} />
             <Checkout
               handleShopping={handleShopping}
               handleCheckout={handleCheckout}
