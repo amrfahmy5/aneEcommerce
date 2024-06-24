@@ -359,7 +359,7 @@ class Navigation extends React.PureComponent {
                   ) : (
                     <UncontrolledDropdown nav inNavbar>
                       <DropdownToggle nav>
-                        <span className="NavTitle">{t("welcome")}</span>
+                        <span className="NavTitle">{t("login")}</span>
 
                         <span className="fa fa-chevron-down dropdown-caret"></span>
                       </DropdownToggle>
