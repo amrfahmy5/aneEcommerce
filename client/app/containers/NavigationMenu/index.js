@@ -37,7 +37,7 @@ class NavigationMenu extends React.PureComponent {
         </div>
         <div className='menu-body'>
           <Container>
-            <h3 className='menu-title'>{t("shopByCategory")}</h3>
+            <h3 className='menu-title collapsible'>{t("shopByCategory")}</h3>
             <nav role='navigation'>
               <ul className='menu-list'>
                 {categories.map((link, index) => (
